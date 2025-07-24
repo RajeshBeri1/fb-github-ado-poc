@@ -1,0 +1,269 @@
+name: CI Pipeline - Trigger Azure DevOps Build
+
+on:
+  push:
+    branches: [ main, develop, feature/* ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+env:
+  # Pipeline variables
+  VAULT_KEY_NAME: kv-flowchart-dev-eus
+  VAULT_KEY_SECRET: serveroverride-dev
+  CONFIG_PATH: appsettings.override.json
+  BACKEND_CAPP: backendapp-flowchart-dev-eus
+  DESIGNER_CAPP: designerapp-flowchart-dev-eus
+  PORTAL_CAPP: portalapp-flowchart-dev-eus
+  SUBSCRIPTION: azure-omc-omg-ann20-shared-dev
+  RESOURCE_GROUP: rg-ann20shareddev-flowchart-eus-app
+  ACR: flowchart-dev-docker-service-connection
+  KEY_VAULT: kv-flowchart-dev-eus
+  SQL_DB: sqldb-flowchart-dev
+  SQL_SERVER: sqlserver-flowchart-dev-eus.database.windows.net
+  
+  # Azure DevOps variables
+  ORGANISATION: https://dev.azure.com/annalectus
+  PROJECT: flowchart-builder
+  DEFINITION_NAME: flowchart-builder
+
+jobs:
+  trigger-azure-devops:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Azure CLI
+      uses: azure/CLI@v1
+      with:
+        azcliversion: latest
+        
+    - name: Configure Azure CLI extensions
+      run: |
+        az config set extension.use_dynamic_install=yes_without_prompt
+        
+    - name: Login to Azure DevOps
+      run: |
+        echo "${{ secrets.AZURE_DEVOPS_TOKEN }}" | az devops login --organization ${{ env.ORGANISATION }}
+      env:
+        AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+        
+    - name: Set branch name
+      run: |
+        # Extract branch name from GitHub ref
+        if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          BRANCH_NAME="${{ github.head_ref }}"
+        else
+          BRANCH_NAME="${{ github.ref_name }}"
+        fi
+        echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+        echo "Branch name: $BRANCH_NAME"
+        
+    - name: Queue Azure DevOps pipeline
+      id: queue-pipeline
+      run: |
+        set -e
+        
+        echo "Triggering Azure DevOps pipeline for branch: ${{ env.BRANCH_NAME }}"
+        
+        buildId=$(az pipelines build queue \
+          --branch ${{ env.BRANCH_NAME }} \
+          --org ${{ env.ORGANISATION }} \
+          --project ${{ env.PROJECT }} \
+          --definition-name ${{ env.DEFINITION_NAME }} \
+          --variables \
+            VAULT_KEY_NAME=${{ env.VAULT_KEY_NAME }} \
+            VAULT_KEY_SECRET=${{ env.VAULT_KEY_SECRET }} \
+            CONFIG_PATH=${{ env.CONFIG_PATH }} \
+            BACKEND_CAPP=${{ env.BACKEND_CAPP }} \
+            DESIGNER_CAPP=${{ env.DESIGNER_CAPP }} \
+            PORTAL_CAPP=${{ env.PORTAL_CAPP }} \
+            SUBSCRIPTION=${{ env.SUBSCRIPTION }} \
+            RESOURCE_GROUP=${{ env.RESOURCE_GROUP }} \
+            ACR=${{ env.ACR }} \
+            SQL_DB=${{ env.SQL_DB }} \
+            SQL_SERVER=${{ env.SQL_SERVER }} \
+            KEY_VAULT=${{ env.KEY_VAULT }} \
+          --only-show-errors \
+          --query id \
+          --output tsv)
+          
+        echo "Build ID: $buildId"
+        echo "BUILD_ID=$buildId" >> $GITHUB_ENV
+        echo "$buildId" > BuildId.txt
+        
+    - name: Monitor pipeline status and stream logs
+      run: |
+        set -e
+        
+        BUILD_ID=${{ env.BUILD_ID }}
+        echo "Monitoring pipeline status for build ID: $BUILD_ID"
+        
+        # Initialize variables for log streaming
+        LAST_LOG_RECORD_ID=0
+        LOG_FETCH_INTERVAL=10
+        STATUS_CHECK_COUNTER=0
+        
+        while true; do
+          # Check status every 3rd iteration (30 seconds)
+          if [ $((STATUS_CHECK_COUNTER % 3)) -eq 0 ]; then
+            status=$(az pipelines build show \
+              --id $BUILD_ID \
+              --org ${{ env.ORGANISATION }} \
+              --project ${{ env.PROJECT }} \
+              --query status \
+              --only-show-errors \
+              --output tsv)
+              
+            echo "🔄 Current status: $status"
+          fi
+          
+          # Fetch and display logs
+          echo "📋 Fetching latest logs..."
+          
+          # Get timeline records to understand the structure
+          timeline=$(az pipelines build show \
+            --id $BUILD_ID \
+            --org ${{ env.ORGANISATION }} \
+            --project ${{ env.PROJECT }} \
+            --query "timeline.records[?state=='inProgress' || state=='completed'].{id:id,name:name,state:state,result:result}" \
+            --only-show-errors \
+            --output json 2>/dev/null || echo "[]")
+          
+          if [ "$timeline" != "[]" ] && [ "$timeline" != "null" ]; then
+            echo "🏗️  Active/Completed Jobs:"
+            echo "$timeline" | jq -r '.[] | "  - \(.name): \(.state) (\(.result // "running"))"' 2>/dev/null || echo "  Unable to parse job details"
+          fi
+          
+          # Get build logs
+          logs=$(az pipelines build log list \
+            --build-id $BUILD_ID \
+            --org ${{ env.ORGANISATION }} \
+            --project ${{ env.PROJECT }} \
+            --only-show-errors \
+            --output json 2>/dev/null || echo "[]")
+          
+          if [ "$logs" != "[]" ] && [ "$logs" != "null" ]; then
+            echo "$logs" | jq -r '.[].id' 2>/dev/null | while read -r log_id; do
+              if [ -n "$log_id" ] && [ "$log_id" != "null" ]; then
+                echo "📄 === Log ID: $log_id ==="
+                az pipelines build log show \
+                  --build-id $BUILD_ID \
+                  --log-id "$log_id" \
+                  --org ${{ env.ORGANISATION }} \
+                  --project ${{ env.PROJECT }} \
+                  --only-show-errors 2>/dev/null | tail -20 || echo "  Unable to fetch log content"
+                echo "📄 === End Log ID: $log_id ==="
+              fi
+            done
+          else
+            echo "⏳ No logs available yet..."
+          fi
+          
+          # Check if pipeline is completed
+          if [ "$status" = "completed" ]; then
+            echo "🏁 Pipeline completed! Fetching final logs..."
+            
+            # Get final comprehensive logs
+            echo "📋 === FINAL PIPELINE LOGS ==="
+            final_logs=$(az pipelines build log list \
+              --build-id $BUILD_ID \
+              --org ${{ env.ORGANISATION }} \
+              --project ${{ env.PROJECT }} \
+              --only-show-errors \
+              --output json 2>/dev/null || echo "[]")
+            
+            if [ "$final_logs" != "[]" ] && [ "$final_logs" != "null" ]; then
+              echo "$final_logs" | jq -r '.[].id' 2>/dev/null | while read -r log_id; do
+                if [ -n "$log_id" ] && [ "$log_id" != "null" ]; then
+                  echo "📄 === FINAL Log ID: $log_id ==="
+                  az pipelines build log show \
+                    --build-id $BUILD_ID \
+                    --log-id "$log_id" \
+                    --org ${{ env.ORGANISATION }} \
+                    --project ${{ env.PROJECT }} \
+                    --only-show-errors 2>/dev/null || echo "  Unable to fetch final log content"
+                  echo "📄 === End FINAL Log ID: $log_id ==="
+                fi
+              done
+            fi
+            
+            # Get final result
+            result=$(az pipelines build show \
+              --id $BUILD_ID \
+              --org ${{ env.ORGANISATION }} \
+              --project ${{ env.PROJECT }} \
+              --query result \
+              --only-show-errors \
+              --output tsv)
+              
+            echo "🎯 Final pipeline result: $result"
+            
+            # Save logs to file
+            echo "💾 Saving logs to azure-devops-logs.txt..."
+            {
+              echo "=== Azure DevOps Build Logs ==="
+              echo "Build ID: $BUILD_ID"
+              echo "Status: $status"
+              echo "Result: $result"
+              echo "Timestamp: $(date)"
+              echo "================================"
+              echo ""
+              
+              if [ "$final_logs" != "[]" ] && [ "$final_logs" != "null" ]; then
+                echo "$final_logs" | jq -r '.[].id' 2>/dev/null | while read -r log_id; do
+                  if [ -n "$log_id" ] && [ "$log_id" != "null" ]; then
+                    echo "=== Log ID: $log_id ==="
+                    az pipelines build log show \
+                      --build-id $BUILD_ID \
+                      --log-id "$log_id" \
+                      --org ${{ env.ORGANISATION }} \
+                      --project ${{ env.PROJECT }} \
+                      --only-show-errors 2>/dev/null || echo "Unable to fetch log content"
+                    echo ""
+                  fi
+                done
+              fi
+            } > azure-devops-logs.txt
+            
+            if [ "$result" = "failed" ]; then
+              echo "❌ Azure DevOps pipeline FAILED"
+              exit 1
+            elif [ "$result" = "succeeded" ]; then
+              echo "✅ Azure DevOps pipeline SUCCEEDED"
+              exit 0
+            else
+              echo "⚠️ Azure DevOps pipeline completed with unknown status: $result"
+              exit 1
+            fi
+          fi
+          
+          STATUS_CHECK_COUNTER=$((STATUS_CHECK_COUNTER + 1))
+          echo "⏰ Pipeline still running... waiting 10 seconds (check #$STATUS_CHECK_COUNTER)"
+          sleep 10
+        done
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: azure-devops-logs
+        path: |
+          BuildId.txt
+          azure-devops-logs.txt
+        retention-days: 30
+        
+    - name: Display build summary
+      if: always()
+      run: |
+        echo "🔗 Build artifacts uploaded:"
+        echo "  - BuildId.txt: Contains the Azure DevOps build ID"
+        echo "  - azure-devops-logs.txt: Contains complete Azure DevOps pipeline logs"
+        echo ""
+        if [ -f "BuildId.txt" ]; then
+          BUILD_ID=$(cat BuildId.txt)
+          echo "🔗 Azure DevOps build URL:"
+          echo "  ${{ env.ORGANISATION }}/${{ env.PROJECT }}/_build/results?buildId=$BUILD_ID"
+        fi
