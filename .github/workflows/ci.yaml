@@ -35,10 +35,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Setup Azure CLI
-      uses: azure/CLI@v1
-      with:
-        azcliversion: latest
+    - name: Install Azure CLI
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
         
     - name: Configure Azure CLI extensions
       run: |
