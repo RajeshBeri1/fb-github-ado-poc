@@ -2,7 +2,7 @@ name: CI Pipeline - Trigger Azure DevOps Build
 
 on:
   push:
-    branches: [ main, develop, feature/* ]
+    branches: [ main, dev, feature/* ]
   pull_request:
     branches: [ main, develop ]
   workflow_dispatch:
