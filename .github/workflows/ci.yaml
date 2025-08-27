@@ -7,7 +7,7 @@ on:
       - develop        # run automatically on develop branch
 
 env:
-  ORGANISATION: "https://dev.azure.com/<your-org>"   # 👈 replace
+  ORGANISATION: "https://dev.azure.com/annalectus"   # 👈 replace
   PROJECT: "flowchart-builder"                          # 👈 replace
   PIPELINE_NAME: "flowchart-builder"                 # 👈 replace
 
