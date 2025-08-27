@@ -25,20 +25,24 @@ env:
   # Azure DevOps variables
   ORGANISATION: https://dev.azure.com/annalectus
   PROJECT: flowchart-builder
-  PIPELINE_NAME: flowchart-builder   # Azure DevOps pipeline name
+  PIPELINE_NAME: flowchart-builder   # <-- your Azure DevOps pipeline name
 
 jobs:
   trigger-azure-devops:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v4
 
     - name: Install Azure CLI + DevOps extension
       run: |
         curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
         az extension add --name azure-devops
+
+    - name: Authenticate with Azure DevOps
+      run: |
+        echo "${{ secrets.AZURE_DEVOPS_TOKEN }}" | az devops login --organization "${{ env.ORGANISATION }}"
 
     - name: Get pipeline ID dynamically
       id: get-pipeline
@@ -48,11 +52,10 @@ jobs:
           --name "${{ env.PIPELINE_NAME }}" \
           --org "${{ env.ORGANISATION }}" \
           --project "${{ env.PROJECT }}" \
-          --query "id" -o tsv \
-          --only-show-errors)
+          --query "id" -o tsv)
         
         echo "PIPELINE_ID=$PIPELINE_ID" >> $GITHUB_ENV
-        echo "Pipeline ID resolved: $PIPELINE_ID"
+        echo "Pipeline ID is: $PIPELINE_ID"
 
     - name: Set branch name
       run: |
@@ -72,23 +75,21 @@ jobs:
         RESPONSE=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
           -X POST \
           -H "Content-Type: application/json" \
-          -d "{
-            \"resources\": {\"repositories\": {\"self\": {\"refName\": \"refs/heads/${{ env.BRANCH_NAME }}\"}}},
-            \"variables\": {
-              \"VAULT_KEY_NAME\": {\"value\": \"${{ env.VAULT_KEY_NAME }}\"},
-              \"VAULT_KEY_SECRET\": {\"value\": \"${{ env.VAULT_KEY_SECRET }}\"},
-              \"CONFIG_PATH\": {\"value\": \"${{ env.CONFIG_PATH }}\"},
-              \"BACKEND_CAPP\": {\"value\": \"${{ env.BACKEND_CAPP }}\"},
-              \"DESIGNER_CAPP\": {\"value\": \"${{ env.DESIGNER_CAPP }}\"},
-              \"PORTAL_CAPP\": {\"value\": \"${{ env.PORTAL_CAPP }}\"},
-              \"SUBSCRIPTION\": {\"value\": \"${{ env.SUBSCRIPTION }}\"},
-              \"RESOURCE_GROUP\": {\"value\": \"${{ env.RESOURCE_GROUP }}\"},
-              \"ACR\": {\"value\": \"${{ env.ACR }}\"},
-              \"KEY_VAULT\": {\"value\": \"${{ env.KEY_VAULT }}\"},
-              \"SQL_DB\": {\"value\": \"${{ env.SQL_DB }}\"},
-              \"SQL_SERVER\": {\"value\": \"${{ env.SQL_SERVER }}\"}
-            }
-          }" \
+          -d "{\"resources\": {\"repositories\": {\"self\": {\"refName\": \"refs/heads/${{ env.BRANCH_NAME }}\"}}}, \
+               \"variables\": {\
+                 \"VAULT_KEY_NAME\": {\"value\": \"${{ env.VAULT_KEY_NAME }}\"},\
+                 \"VAULT_KEY_SECRET\": {\"value\": \"${{ env.VAULT_KEY_SECRET }}\"},\
+                 \"CONFIG_PATH\": {\"value\": \"${{ env.CONFIG_PATH }}\"},\
+                 \"BACKEND_CAPP\": {\"value\": \"${{ env.BACKEND_CAPP }}\"},\
+                 \"DESIGNER_CAPP\": {\"value\": \"${{ env.DESIGNER_CAPP }}\"},\
+                 \"PORTAL_CAPP\": {\"value\": \"${{ env.PORTAL_CAPP }}\"},\
+                 \"SUBSCRIPTION\": {\"value\": \"${{ env.SUBSCRIPTION }}\"},\
+                 \"RESOURCE_GROUP\": {\"value\": \"${{ env.RESOURCE_GROUP }}\"},\
+                 \"ACR\": {\"value\": \"${{ env.ACR }}\"},\
+                 \"SQL_DB\": {\"value\": \"${{ env.SQL_DB }}\"},\
+                 \"SQL_SERVER\": {\"value\": \"${{ env.SQL_SERVER }}\"},\
+                 \"KEY_VAULT\": {\"value\": \"${{ env.KEY_VAULT }}\"}\
+               }}" \
           "${{ env.ORGANISATION }}/${{ env.PROJECT }}/_apis/pipelines/${{ env.PIPELINE_ID }}/runs?api-version=7.1-preview.1")
 
         echo "$RESPONSE"
