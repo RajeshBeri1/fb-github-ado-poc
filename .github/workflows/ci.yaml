@@ -1,147 +1,95 @@
-name: CI Pipeline - Trigger Azure DevOps Build and Stream Logs
+name: Azure DevOps Pipeline Proxy
 
 on:
+  workflow_dispatch:   # manual trigger from GitHub
   push:
-    branches: [ main, develop, feature/* ]
-  pull_request:
-    branches: [ main, develop ]
-  workflow_dispatch:
+    branches:
+      - develop        # run automatically on develop branch
 
 env:
-  # Pipeline variables
-  VAULT_KEY_NAME: kv-flowchart-dev-eus
-  VAULT_KEY_SECRET: serveroverride-dev
-  CONFIG_PATH: appsettings.override.json
-  BACKEND_CAPP: backendapp-flowchart-dev-eus
-  DESIGNER_CAPP: designerapp-flowchart-dev-eus
-  PORTAL_CAPP: portalapp-flowchart-dev-eus
-  SUBSCRIPTION: azure-omc-omg-ann20-shared-dev
-  RESOURCE_GROUP: rg-ann20shareddev-flowchart-eus-app
-  ACR: flowchart-dev-docker-service-connection
-  KEY_VAULT: kv-flowchart-dev-eus
-  SQL_DB: sqldb-flowchart-dev
-  SQL_SERVER: sqlserver-flowchart-dev-eus.database.windows.net
-
-  # Azure DevOps variables
-  ORGANISATION: https://dev.azure.com/annalectus
-  PROJECT: flowchart-builder
-  PIPELINE_NAME: flowchart-builder   # <-- your Azure DevOps pipeline name
+  ORGANISATION: "https://dev.azure.com/<your-org>"   # 👈 replace
+  PROJECT: "flowchart-builder"                          # 👈 replace
+  PIPELINE_NAME: "flowchart-builder"                 # 👈 replace
 
 jobs:
-  trigger-azure-devops:
+  run-ado-pipeline:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
-    - name: Install Azure CLI + DevOps extension
-      run: |
-        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-        az extension add --name azure-devops
+      - name: Install Azure CLI + DevOps extension
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+          az extension add --name azure-devops
 
-    - name: Authenticate with Azure DevOps
-      run: |
-        echo "${{ secrets.AZURE_DEVOPS_TOKEN }}" | az devops login --organization "${{ env.ORGANISATION }}"
+      - name: Authenticate Azure DevOps CLI
+        env:
+          AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+        run: |
+          echo "${AZURE_DEVOPS_EXT_PAT}" | az devops login --organization ${{ env.ORGANISATION }}
 
-    - name: Get pipeline ID dynamically
-      id: get-pipeline
-      run: |
-        echo "🔍 Fetching pipeline ID for: ${{ env.PIPELINE_NAME }}"
-        PIPELINE_ID=$(az pipelines show \
-          --name "${{ env.PIPELINE_NAME }}" \
-          --org "${{ env.ORGANISATION }}" \
-          --project "${{ env.PROJECT }}" \
-          --query "id" -o tsv)
-        
-        echo "PIPELINE_ID=$PIPELINE_ID" >> $GITHUB_ENV
-        echo "Pipeline ID is: $PIPELINE_ID"
+      - name: Get Pipeline ID dynamically
+        id: get-pipeline
+        run: |
+          PIPELINE_ID=$(az pipelines show \
+            --name "${{ env.PIPELINE_NAME }}" \
+            --org "${{ env.ORGANISATION }}" \
+            --project "${{ env.PROJECT }}" \
+            --query "id" -o tsv)
 
-    - name: Set branch name
-      run: |
-        if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-          BRANCH_NAME="${{ github.head_ref }}"
-        else
-          BRANCH_NAME="${{ github.ref_name }}"
-        fi
-        echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
-        echo "Branch name: $BRANCH_NAME"
-
-    - name: Trigger Azure DevOps pipeline
-      id: queue
-      run: |
-        echo "▶️ Triggering Azure DevOps pipeline ${{ env.PIPELINE_ID }} for branch: ${{ env.BRANCH_NAME }}"
-
-        RESPONSE=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
-          -X POST \
-          -H "Content-Type: application/json" \
-          -d "{\"resources\": {\"repositories\": {\"self\": {\"refName\": \"refs/heads/${{ env.BRANCH_NAME }}\"}}}, \
-               \"variables\": {\
-                 \"VAULT_KEY_NAME\": {\"value\": \"${{ env.VAULT_KEY_NAME }}\"},\
-                 \"VAULT_KEY_SECRET\": {\"value\": \"${{ env.VAULT_KEY_SECRET }}\"},\
-                 \"CONFIG_PATH\": {\"value\": \"${{ env.CONFIG_PATH }}\"},\
-                 \"BACKEND_CAPP\": {\"value\": \"${{ env.BACKEND_CAPP }}\"},\
-                 \"DESIGNER_CAPP\": {\"value\": \"${{ env.DESIGNER_CAPP }}\"},\
-                 \"PORTAL_CAPP\": {\"value\": \"${{ env.PORTAL_CAPP }}\"},\
-                 \"SUBSCRIPTION\": {\"value\": \"${{ env.SUBSCRIPTION }}\"},\
-                 \"RESOURCE_GROUP\": {\"value\": \"${{ env.RESOURCE_GROUP }}\"},\
-                 \"ACR\": {\"value\": \"${{ env.ACR }}\"},\
-                 \"SQL_DB\": {\"value\": \"${{ env.SQL_DB }}\"},\
-                 \"SQL_SERVER\": {\"value\": \"${{ env.SQL_SERVER }}\"},\
-                 \"KEY_VAULT\": {\"value\": \"${{ env.KEY_VAULT }}\"}\
-               }}" \
-          "${{ env.ORGANISATION }}/${{ env.PROJECT }}/_apis/pipelines/${{ env.PIPELINE_ID }}/runs?api-version=7.1-preview.1")
-
-        echo "$RESPONSE"
-        RUN_ID=$(echo "$RESPONSE" | jq -r '.id')
-        echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
-        echo "$RUN_ID" > BuildId.txt
-
-    - name: Stream ADO logs into GitHub
-      run: |
-        set -e
-        RUN_ID=${{ env.RUN_ID }}
-        echo "📡 Streaming logs for Run ID: $RUN_ID"
-
-        declare -A LAST_LINES
-        while true; do
-          STATE=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
-            "${{ env.ORGANISATION }}/${{ env.PROJECT }}/_apis/pipelines/runs/$RUN_ID?api-version=7.1-preview.1" \
-            | jq -r '.state')
-
-          echo "🔄 Current pipeline status: $STATE"
-
-          LOGS=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
-            "${{ env.ORGANISATION }}/${{ env.PROJECT }}/_apis/build/builds/$RUN_ID/logs?api-version=7.1-preview.2")
-
-          for LOG_ID in $(echo "$LOGS" | jq -r '.[].id'); do
-            [ -z "$LOG_ID" ] && continue
-            LAST_LINE=${LAST_LINES[$LOG_ID]:-1}
-
-            NEW_LINES=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
-              "${{ env.ORGANISATION }}/${{ env.PROJECT }}/_apis/build/builds/$RUN_ID/logs/$LOG_ID?api-version=7.1-preview.2&startLine=$LAST_LINE")
-
-            if [ -n "$NEW_LINES" ] && [ "$NEW_LINES" != "null" ]; then
-              echo "$NEW_LINES"
-              COUNT=$(echo "$NEW_LINES" | wc -l)
-              LAST_LINES[$LOG_ID]=$((LAST_LINE + COUNT))
-            fi
-          done
-
-          if [ "$STATE" = "completed" ]; then
-            RESULT=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
-              "${{ env.ORGANISATION }}/${{ env.PROJECT }}/_apis/pipelines/runs/$RUN_ID?api-version=7.1-preview.1" \
-              | jq -r '.result')
-            echo "🏁 Pipeline completed with result: $RESULT"
-            [ "$RESULT" = "succeeded" ] && exit 0 || exit 1
+          if [ -z "$PIPELINE_ID" ]; then
+            echo "❌ Failed to fetch pipeline ID"
+            exit 1
           fi
 
-          sleep 10
-        done
+          echo "PIPELINE_ID=$PIPELINE_ID" >> $GITHUB_ENV
+          echo "✅ Pipeline ID is: $PIPELINE_ID"
 
-    - name: Upload logs
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: azure-devops-logs
-        path: BuildId.txt
+      - name: Trigger Azure Pipeline (develop branch)
+        id: run-pipeline
+        run: |
+          RUN_ID=$(az pipelines run \
+            --id $PIPELINE_ID \
+            --branch develop \
+            --org "${{ env.ORGANISATION }}" \
+            --project "${{ env.PROJECT }}" \
+            --query "id" -o tsv)
+
+          echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
+          echo "✅ Triggered pipeline run: $RUN_ID"
+
+      - name: Stream ADO logs into GitHub
+        run: |
+          set -e
+          RUN_ID=${{ env.RUN_ID }}
+          echo "📡 Streaming logs for Run ID: $RUN_ID"
+
+          while true; do
+            RUN_DETAILS=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
+              "${{ env.ORGANISATION }}/${{ env.PROJECT }}/_apis/pipelines/runs/$RUN_ID?api-version=7.1-preview.1")
+
+            STATE=$(echo "$RUN_DETAILS" | jq -r '.state')
+            RESULT=$(echo "$RUN_DETAILS" | jq -r '.result // empty')
+
+            echo "🔄 Current pipeline status: $STATE"
+
+            # Dump job logs
+            TIMELINE=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
+              "${{ env.ORGANISATION }}/${{ env.PROJECT }}/_apis/build/builds/$RUN_ID/timeline?api-version=7.1-preview.1")
+
+            if echo "$TIMELINE" | jq -e '.records' > /dev/null; then
+              for url in $(echo "$TIMELINE" | jq -r '.records[] | select(.log != null) | .log.url'); do
+                echo "⬇️ Fetching logs from $url"
+                curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" "$url"
+              done
+            fi
+
+            if [ "$STATE" = "completed" ]; then
+              echo "🏁 Pipeline completed with result: $RESULT"
+              [ "$RESULT" = "succeeded" ] && exit 0 || exit 1
+            fi
+
+            sleep 10
+          done
