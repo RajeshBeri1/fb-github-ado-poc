@@ -34,9 +34,9 @@ jobs:
 
       - name: Login to Azure DevOps
         run: |
-          echo "${{ secrets.AZURE_DEVOPS_PAT }}" | az devops login --organization https://dev.azure.com/annalectus
+          echo "${{ secrets.AZURE_DEVOPS_TOKEN }}" | az devops login --organization https://dev.azure.com/annalectus
         env:
-          AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
+          AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
       - name: Trigger Azure DevOps pipeline
         id: trigger
@@ -86,12 +86,12 @@ jobs:
             echo "Build status: $status"
 
             # Fetch log list
-            logs=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_PAT }}" \
+            logs=$(curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
               "$ORG/$PROJECT/_apis/build/builds/$buildId/logs?api-version=7.1")
 
             log_count=$(echo $logs | jq '.count')
             for i in $(seq 1 $log_count); do
-              curl -s -u ":${{ secrets.AZURE_DEVOPS_PAT }}" \
+              curl -s -u ":${{ secrets.AZURE_DEVOPS_TOKEN }}" \
                 "$ORG/$PROJECT/_apis/build/builds/$buildId/logs/$i?api-version=7.1"
             done
 
