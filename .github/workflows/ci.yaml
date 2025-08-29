@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - develop   # Run only when pushing to develop branch
-    
+
 env:
   # Pipeline variables
   VAULT_KEY_NAME: kv-flowchart-dev-eus
@@ -31,7 +31,6 @@ jobs:
       - name: Install Azure CLI & DevOps extension
         run: |
           az extension add -n azure-devops
-          sudo apt-get update -y && sudo apt-get install -y jq
 
       - name: Login to Azure DevOps
         run: |
@@ -48,7 +47,6 @@ jobs:
           BRANCH="develop"
 
           echo "Queuing build for branch $BRANCH"
-
           buildId=$(az pipelines build queue \
             --branch "$BRANCH" \
             --org $ORG \
@@ -73,24 +71,15 @@ jobs:
           echo "BuildId=$buildId" >> $GITHUB_ENV
           echo "Triggered build ID: $buildId"
 
-      - name: Stream logs step-by-step (like Azure DevOps)
+      - name: Stream step-by-step logs
         run: |
-          set -Eeuo pipefail
           ORG="https://dev.azure.com/annalectus"
           PROJECT="flowchart-builder"
           TOKEN="${{ secrets.AZURE_DEVOPS_TOKEN }}"
-          buildId="${{ env.BuildId }}"
-
-          echo "Streaming step-by-step logs for build $buildId"
+          buildId=${{ env.BuildId }}
 
           declare -A NEXT_LINE
           declare -A HEADER_STATE
-
-          get_status() {
-            az pipelines build show \
-              --id "$buildId" --org "$ORG" --project "$PROJECT" \
-              --query status -o tsv
-          }
 
           print_new_lines() {
             local logId="$1"
@@ -99,6 +88,10 @@ jobs:
             local state="$4"
 
             if [[ "${HEADER_STATE[$logId]:-}" != "open" && "${HEADER_STATE[$logId]:-}" != "closed" ]]; then
+              echo ""
+              echo "===================================================================="
+              echo "STEP: [$type] $name"
+              echo "===================================================================="
               echo "::group::[$type] $name"
               HEADER_STATE[$logId]="open"
             fi
@@ -113,7 +106,10 @@ jobs:
             fi
 
             if [[ -n "$content" ]]; then
-              printf "%s\n" "$content"
+              while IFS= read -r line; do
+                printf "[%s] %s | %s\n" "$(date +'%H:%M:%S')" "$name" "$line"
+              done <<< "$content"
+
               local lines
               lines="$(printf "%s" "$content" | wc -l | awk '{print $1}')"
               if [[ "$lines" -gt 0 ]]; then
@@ -124,42 +120,37 @@ jobs:
             if [[ "$state" == "completed" && "${HEADER_STATE[$logId]}" == "open" ]]; then
               echo "::endgroup::"
               HEADER_STATE[$logId]="closed"
+              echo ""
             fi
           }
 
-          status="$(get_status)"
+          echo "Fetching logs for build $buildId"
+          status=$(az pipelines build show --id $buildId --org $ORG --project $PROJECT --query status -o tsv)
 
-          while [[ "$status" != "completed" ]]; do
-            timeline="$(curl -sS -u ":$TOKEN" \
-              "$ORG/$PROJECT/_apis/build/builds/$buildId/timeline?api-version=7.1")"
+          while [ "$status" != "completed" ]; do
+            timeline=$(curl -s -u ":$TOKEN" \
+              "$ORG/$PROJECT/_apis/build/builds/$buildId/timeline?api-version=7.1")
 
-            mapfile -t recs < <(printf "%s" "$timeline" \
-              | jq -r '.records[] | select(.log != null) | "\(.log.id)|\(.name)|\(.type)|\(.state)"')
-
-            for rec in "${recs[@]}"; do
-              IFS='|' read -r logId name type state <<< "$rec"
+            echo "$timeline" | jq -r '.records[] | select(.log.id != null) | "\(.log.id)|\(.name)|\(.type)|\(.state)"' |
+            while IFS="|" read -r logId name type state; do
               print_new_lines "$logId" "$name" "$type" "$state"
             done
 
-            sleep 6
-            status="$(get_status)"
+            sleep 20
+            status=$(az pipelines build show --id $buildId --org $ORG --project $PROJECT --query status -o tsv)
           done
 
-          # Final drain
-          timeline="$(curl -sS -u ":$TOKEN" \
-            "$ORG/$PROJECT/_apis/build/builds/$buildId/timeline?api-version=7.1")"
-          mapfile -t recs < <(printf "%s" "$timeline" \
-            | jq -r '.records[] | select(.log != null) | "\(.log.id)|\(.name)|\(.type)|\(.state)"')
-          for rec in "${recs[@]}"; do
-            IFS='|' read -r logId name type state <<< "$rec"
-            print_new_lines "$logId" "$name" "$type" "$state"
-            if [[ "${HEADER_STATE[$logId]:-}" == "open" ]]; then
-              echo "::endgroup::"
-              HEADER_STATE[$logId]="closed"
-            fi
-          done
+          # Final result
+          result=$(az pipelines build show --id $buildId --org $ORG --project $PROJECT --query result -o tsv)
+          echo "===================================================================="
+          echo "FINAL RESULT: $result"
+          echo "===================================================================="
 
-          # Final result check
-          result=$(az pipelines build show --id "$buildId" --org "$ORG" --project "$PROJECT" --query result -o tsv)
-          echo "Final result: $result"
-          if [[ "$result" != "succeeded" ]]; then exit 1; fi
+          if [ "$result" = "failed" ]; then
+            exit 1
+          elif [ "$result" = "succeeded" ]; then
+            exit 0
+          else
+            echo "Unknown build status"
+            exit 1
+          fi
