@@ -71,7 +71,7 @@ jobs:
           echo "BuildId=$buildId" >> $GITHUB_ENV
           echo "Triggered build ID: $buildId"
 
-      - name: Stream step-by-step logs
+      - name: flowchart builder logs
         run: |
           ORG="https://dev.azure.com/annalectus"
           PROJECT="flowchart-builder"
@@ -81,18 +81,20 @@ jobs:
           declare -A NEXT_LINE
           declare -A HEADER_STATE
 
-          print_new_lines() {
+          print_log_lines() {
             local logId="$1"
-            local name="$2"
-            local type="$3"
+            local jobName="$2"
+            local stepName="$3"
             local state="$4"
 
+            # Open header once
             if [[ "${HEADER_STATE[$logId]:-}" != "open" && "${HEADER_STATE[$logId]:-}" != "closed" ]]; then
               echo ""
-              echo "===================================================================="
-              echo "STEP: [$type] $name"
-              echo "===================================================================="
-              echo "::group::[$type] $name"
+              echo "============================================================"
+              echo "JOB: $jobName"
+              echo "STEP: $stepName"
+              echo "============================================================"
+              echo "::group::[$jobName] $stepName"
               HEADER_STATE[$logId]="open"
             fi
 
@@ -100,18 +102,15 @@ jobs:
             local url="$ORG/$PROJECT/_apis/build/builds/$buildId/logs/$logId?startLine=$start&api-version=7.1"
 
             local content
-            if ! content="$(curl -sS -u ":$TOKEN" "$url")"; then
-              echo "WARN: Failed to fetch logId=$logId (startLine=$start)" >&2
-              return
-            fi
+            content=$(curl -sS -u ":$TOKEN" "$url") || return
 
             if [[ -n "$content" ]]; then
               while IFS= read -r line; do
-                printf "[%s] %s | %s\n" "$(date +'%H:%M:%S')" "$name" "$line"
+                printf "[%s] [%s | %s] %s\n" "$(date +'%H:%M:%S')" "$jobName" "$stepName" "$line"
               done <<< "$content"
 
               local lines
-              lines="$(printf "%s" "$content" | wc -l | awk '{print $1}')"
+              lines=$(printf "%s" "$content" | wc -l | awk '{print $1}')
               if [[ "$lines" -gt 0 ]]; then
                 NEXT_LINE[$logId]=$((start + lines))
               fi
@@ -131,26 +130,22 @@ jobs:
             timeline=$(curl -s -u ":$TOKEN" \
               "$ORG/$PROJECT/_apis/build/builds/$buildId/timeline?api-version=7.1")
 
-            echo "$timeline" | jq -r '.records[] | select(.log.id != null) | "\(.log.id)|\(.name)|\(.type)|\(.state)"' |
-            while IFS="|" read -r logId name type state; do
-              print_new_lines "$logId" "$name" "$type" "$state"
+            # Use job name + record name to make it developer-friendly
+            echo "$timeline" | jq -r '.records[] | select(.log.id != null) | "\(.log.id)|\(.parentId)|\(.name)|\(.state)"' |
+            while IFS="|" read -r logId parentId stepName state; do
+              jobName=$(echo "$timeline" | jq -r ".records[] | select(.id==\"$parentId\") | .name")
+              [ "$jobName" = "null" ] && jobName="Main"
+              print_log_lines "$logId" "$jobName" "$stepName" "$state"
             done
 
-            sleep 20
+            sleep 10
             status=$(az pipelines build show --id $buildId --org $ORG --project $PROJECT --query status -o tsv)
           done
 
           # Final result
           result=$(az pipelines build show --id $buildId --org $ORG --project $PROJECT --query result -o tsv)
-          echo "===================================================================="
+          echo "============================================================"
           echo "FINAL RESULT: $result"
-          echo "===================================================================="
+          echo "============================================================"
+          if [ "$result" != "succeeded" ]; then exit 1; fi
 
-          if [ "$result" = "failed" ]; then
-            exit 1
-          elif [ "$result" = "succeeded" ]; then
-            exit 0
-          else
-            echo "Unknown build status"
-            exit 1
-          fi
