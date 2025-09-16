@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tests.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:Tests.WebAPI.BusinessTests.AthenaQueryLogicTests">
+            <summary>
+            AthenaQueryLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.AthenaQueryLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.CacheLogicTests">
+            <summary>
+            CacheLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CacheLogicTests.GetAsync_ShouldReturnUser_WhenCacheIsDisabled">
+            <summary>
+            Gets the asynchronous should return when cache is disabled.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CacheLogicTests.GetAsync_ShouldReturnUser_WhenCacheIsEnabled">
+            <summary>
+            Gets the asynchronous should return when cache is enabled.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CacheLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests">
+            <summary>
+            CalendarOverlayTemplateControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests.CreateAsync_ShouldReturnTemplate_WhenTemplateIsCreated">
+            <summary>
+            Creates the asynchronous should return template when template is created.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests.DeleteAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Deletes the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests.DeleteAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Deletes the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests.GetAsync_ShouldReturnTemplate_WhenTemplateExists">
+            <summary>
+            Gets the asynchronous should return template when template exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests.GetAsync_ShouldReturnTemplates_WhenSearching">
+            <summary>
+            Gets the asynchronous should return templates when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests.UpdateAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Updates the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests.UpdateAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Updates the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarOverlayTemplateControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests">
+            <summary>
+            CalendarTemplateControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests.CreateAsync_ShouldReturnTemplate_WhenTemplateIsCreated">
+            <summary>
+            Creates the asynchronous should return template when template is created.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests.DeleteAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Deletes the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests.DeleteAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Deletes the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests.GetAsync_ShouldReturnTemplate_WhenTemplateExists">
+            <summary>
+            Gets the asynchronous should return template when template exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests.GetAsync_ShouldReturnTemplates_WhenSearching">
+            <summary>
+            Gets the asynchronous should return templates when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests.UpdateAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Updates the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests.UpdateAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Updates the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.CalendarTemplateControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.ClientControllerLogicTests">
+            <summary>
+            ClientControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ClientControllerLogicTests.CreateAsync_ShouldReturnClient_WhenClientIsCreated">
+            <summary>
+            Create the client asynchronous.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ClientControllerLogicTests.GetAsync_ShouldReturnClient_WhenSearching">
+            <summary>
+            Gets the asynchronous should return Client list when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ClientControllerLogicTests.GetAsync_ShouldReturnClient_WhenClientExists">
+            <summary>
+            Gets the asynchronous should return Client when Client already exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ClientControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests">
+            <summary>
+            FlowchartTemplateControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.CreateAsync_ShouldReturnTemplate_WhenTemplateIsCreated">
+            <summary>
+            Creates the asynchronous should return template when template is created.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.DeleteAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Deletes the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.DeleteAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Deletes the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.GetAsync_ShouldReturnTemplate_WhenTemplateExists">
+            <summary>
+            Gets the asynchronous should return template when template exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.GetAsync_ShouldReturnTemplates_WhenSearching">
+            <summary>
+            Gets the asynchronous should return templates when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.UpdateAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Updates the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.UpdateAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Updates the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.UpdateFlowchartTemplateNameByIdAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Update Flowchart Template Name By Id asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplateControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.FlowchartTemplatesHistortyControllerLogicTests">
+            <summary>
+            The FlowchartTemplatesHistortyControllerLogicTests
+            </summary>
+        </member>
+        <member name="F:Tests.WebAPI.BusinessTests.FlowchartTemplatesHistortyControllerLogicTests.blobServiceClientMock">
+            <summary>
+            Blob service client mock
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplatesHistortyControllerLogicTests.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tests.WebAPI.BusinessTests.FlowchartTemplatesHistortyControllerLogicTests"/> class.
+            The FlowchartTemplatesHistortyControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplatesHistortyControllerLogicTests.GetAsync_ShouldThrowKeyNotFoundException_WhenTemplateIdIsPassed">
+            <summary>
+            Gets the asynchronous FlowchartTemplatesHistortyList method Should Throw KeyNotFoundException When wrong TemplateId is passed.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplatesHistortyControllerLogicTests.GetAsync_ShouldReturnFlowchartTemplatesVersionHistorty_WhenSearching">
+            <summary>
+            Gets the asynchronous Should return FlowchartTemplatesVersionHistorty list when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FlowchartTemplatesHistortyControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests">
+            <summary>
+            FooterTemplateControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests.CreateAsync_ShouldReturnTemplate_WhenTemplateIsCreated">
+            <summary>
+            Creates the asynchronous should return template when template is created.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests.DeleteAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Deletes the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests.DeleteAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Deletes the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests.GetAsync_ShouldReturnTemplate_WhenTemplateExists">
+            <summary>
+            Gets the asynchronous should return template when template exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests.GetAsync_ShouldReturnTemplates_WhenSearching">
+            <summary>
+            Gets the asynchronous should return templates when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests.UpdateAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Updates the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests.UpdateAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Updates the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.FooterTemplateControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests">
+            <summary>
+            HeaderTemplateControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests.CreateAsync_ShouldReturnTemplate_WhenTemplateIsCreated">
+            <summary>
+            Creates the asynchronous should return template when template is created.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests.DeleteAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Deletes the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests.DeleteAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Deletes the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests.GetAsync_ShouldReturnTemplate_WhenTemplateExists">
+            <summary>
+            Gets the asynchronous should return template when template exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests.GetAsync_ShouldReturnTemplates_WhenSearching">
+            <summary>
+            Gets the asynchronous should return templates when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests.UpdateAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Updates the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests.UpdateAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Updates the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.HeaderTemplateControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests">
+            <summary>
+            MediaHierarchyTemplateControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests.CreateAsync_ShouldReturnTemplate_WhenTemplateIsCreated">
+            <summary>
+            Creates the asynchronous should return template when template is created.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests.DeleteAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Deletes the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests.DeleteAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Deletes the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests.GetAsync_ShouldReturnTemplate_WhenTemplateExists">
+            <summary>
+            Gets the asynchronous should return template when template exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests.GetAsync_ShouldReturnTemplates_WhenSearching">
+            <summary>
+            Gets the asynchronous should return templates when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests.UpdateAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Updates the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests.UpdateAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Updates the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.MediaHierarchyTemplateControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.ModelBaseRepositoryTests">
+            <summary>
+            ModelBaseRepositoryTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ModelBaseRepositoryTests.AddAsync_ShouldSucceed_WhenUserAdded">
+            <summary>
+            Adds the asynchronous test.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ModelBaseRepositoryTests.GetByIdAsync_ShouldReturnUser_WhenUserExists">
+            <summary>
+            Gets the by identifier asynchronous should return user when user exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ModelBaseRepositoryTests.GetByIdAsync_ShouldThrowException_WhenUserNotExists">
+            <summary>
+            Gets the by identifier asynchronous should throw exception when user not
+            exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ModelBaseRepositoryTests.GetByIdAsyncDto_ShouldReturnDTO_WhenUserExists">
+            <summary>
+            Gets the by identifier asynchronous dto test.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ModelBaseRepositoryTests.GetByIdAsyncDto_ShouldThrowException_WhenUserNotExists">
+            <summary>
+            Gets the by identifier asynchronous dto should throw exception when user not
+            exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ModelBaseRepositoryTests.SoftDeleteAsync_ShouldSetRemovedFlag_WhenUserExists">
+            <summary>
+            Softs the delete asynchronous should set removed flag when user exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ModelBaseRepositoryTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests">
+            <summary>
+            ThemeTemplateControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests.CreateAsync_ShouldReturnTemplate_WhenTemplateIsCreated">
+            <summary>
+            Creates the asynchronous should return template when template is created.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests.DeleteAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Deletes the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests.DeleteAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Deletes the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests.GetAsync_ShouldReturnTemplate_WhenTemplateExists">
+            <summary>
+            Gets the asynchronous should return template when template exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests.GetAsync_ShouldReturnTemplates_WhenSearching">
+            <summary>
+            Gets the asynchronous should return templates when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests.UpdateAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Updates the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests.UpdateAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Updates the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.ThemeTemplateControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests">
+            <summary>
+            TotalsTemplateControllerLogicTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests.CreateAsync_ShouldReturnTemplate_WhenTemplateIsCreated">
+            <summary>
+            Creates the asynchronous should return template when template is created.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests.DeleteAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Deletes the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests.DeleteAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Deletes the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests.GetAsync_ShouldReturnTemplate_WhenTemplateExists">
+            <summary>
+            Gets the asynchronous should return template when template exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests.GetAsync_ShouldReturnTemplates_WhenSearching">
+            <summary>
+            Gets the asynchronous should return templates when searching.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests.UpdateAsync_ShouldReturnTemplate_WhenOwnerIsSame">
+            <summary>
+            Updates the asynchronous should return template when owner is same.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests.UpdateAsync_ShouldThrowException_WhenOwnerIsDifferent">
+            <summary>
+            Updates the asynchronous should throw exception when owner is different.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.TotalsTemplateControllerLogicTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.BusinessTests.UserProviderTests">
+            <summary>
+            UserProviderTests
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.UserProviderTests.GetCurrentAsync_ShouldReturnUser_WhenUserExists">
+            <summary>
+            Gets the current asynchronous should return user when user exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.UserProviderTests.GetCurrentAsync_ShouldSaveUser_WhenUserNotExists">
+            <summary>
+            Gets the current asynchronous should save user when user not exists.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.UserProviderTests.GetCurrentAsync_ShouldThrowException_WhenClaimNameIdentifierIsNotSet">
+            <summary>
+            Gets the current asynchronous should throw exception when claim name
+            identifier is not set.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.UserProviderTests.GetCurrentAsync_ShouldThrowException_WhenClaimsIdentityIsNotSet">
+            <summary>
+            Gets the current asynchronous should throw exception when claims identity is
+            not set.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.UserProviderTests.GetCurrentAsync_ShouldThrowException_WhenClaimsPrincipalIsNotSet">
+            <summary>
+            Gets the current asynchronous should return user when claims principal set.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.BusinessTests.UserProviderTests.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Tests.WebAPI.Common.TestBase`1">
+            <summary>
+            TestBase
+            </summary>
+        </member>
+        <member name="F:Tests.WebAPI.Common.TestBase`1.container">
+            <summary>
+            The container
+            </summary>
+        </member>
+        <member name="F:Tests.WebAPI.Common.TestBase`1.mapper">
+            <summary>
+            The mapper
+            </summary>
+        </member>
+        <member name="F:Tests.WebAPI.Common.TestBase`1.portalDbContext">
+            <summary>
+            The portal database context
+            </summary>
+        </member>
+        <member name="F:Tests.WebAPI.Common.TestBase`1.sut">
+            <summary>
+            The sut
+            </summary>
+        </member>
+        <member name="P:Tests.WebAPI.Common.TestBase`1.CancellationToken">
+            <summary>
+            Gets the cancellation token.
+            </summary>
+            <value>The cancellation token.</value>
+        </member>
+        <member name="M:Tests.WebAPI.Common.TestBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tests.WebAPI.Common.TestBase`1" /> class.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.Common.TestBase`1.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or
+            resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Tests.WebAPI.Common.TestBase`1.InitContainer(Lamar.ServiceRegistry)">
+            <summary>
+            Initializes the container.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="M:Tests.WebAPI.Common.TestBase`1.NamedSearch``1(System.Collections.Generic.IEnumerable{``0},Lib.WebAPI.Models.NamedSearch)">
+            <summary>
+            Nameds the search.
+            </summary>
+            <param name="items">The items.</param>
+            <param name="namedSearch">The named search.</param>
+        </member>
+    </members>
+</doc>

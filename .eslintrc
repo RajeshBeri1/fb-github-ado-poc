@@ -1,0 +1,15 @@
+{
+    "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "plugins": ["@typescript-eslint", "prettier"],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+        "prettier/prettier": ["warn", {
+            "endOfLine": "auto",
+"@typescript-eslint/no-empty-function": "off"
+        }]
+    }
+}

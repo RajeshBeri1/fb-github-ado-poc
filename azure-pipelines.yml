@@ -1,0 +1,321 @@
+trigger:
+    - develop
+
+stages:
+- stage: Build
+  jobs:
+    - job: BuildWebAPI
+      condition: "true"
+      pool:
+       vmImage: ubuntu-latest
+      displayName: 'Build WebAPI'
+      steps:
+          - task: UseDotNet@2
+            inputs:
+                version: '9.0.x'
+            displayName: Install dotnet 9.0.x
+          - script: cd  WebAPI/ && dotnet restore && dotnet build
+            displayName: Build WebApi
+          - script: cd  Tests.WebAPI/ && dotnet test
+            displayName: Run tests for WebApi
+    - job: BuildPortalApp
+      condition: "true"
+      displayName: 'Build PortalApp'
+      steps:
+          - task: NodeTool@0
+            inputs:
+                versionSpec: '18.x'
+            displayName: 'Install Node.js'
+          - task: AzureKeyVault@2
+            displayName: ‘KV Auth’
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              KeyVaultName: '$(KEY_VAULT)'
+              SecretsFilter: 'id-rsa'
+              RunAsPreJob: true
+          - task: CmdLine@2
+            inputs:
+              script: |
+                #!/bin/bash
+                mkdir -p ~/.ssh
+                
+                # Bitbucket ReadOnly Permission
+                echo "$(id-rsa)" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+                ssh-keyscan bitbucket.org >>~/.ssh/known_hosts
+          - task: npmAuthenticate@0
+            displayName: 'npm Authenticate'
+            inputs:
+              workingFile: './PortalApp/ClientApp/.npmrc'
+              customEndpoint: 'npm'
+          - script: cd PortalApp/ClientApp && npm install
+            displayName: Install dependencies
+          - script: cd PortalApp/ClientApp/src/config/ && rm webapi.config.ts && mv webapi.config.prod.ts webapi.config.ts
+            displayName: Apply prod config
+          - script: cd PortalApp/ClientApp && mkdir -p ~/.aspnet/https
+            displayName: Create Directory for certificate
+          - script: cd PortalApp/ClientApp && npm run build
+            displayName: Build project 
+          - task: CopyFiles@2
+            displayName: 'Copy PortalApp docker'
+            inputs:
+                SourceFolder: './PortalApp/ClientApp/docker'
+                TargetFolder: '$(Build.ArtifactStagingDirectory)/docker'
+          - task: CopyFiles@2
+            displayName: 'Copy PortalApp dist'
+            inputs:
+                SourceFolder: './PortalApp/ClientApp/dist'
+                TargetFolder: '$(Build.ArtifactStagingDirectory)/dist'
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish artifact'
+            inputs:
+                pathToPublish: $(Build.ArtifactStagingDirectory)
+                artifactName: OmniflowPortalApp
+          - task: Docker@2
+            displayName: 'Portal App Image'
+            inputs:
+              containerRegistry: '$(ACR)'
+              repository: 'portal'
+              command: 'buildAndPush'
+              Dockerfile: '$(Build.ArtifactStagingDirectory)/docker/Dockerfile'
+              buildContext: '$(Build.ArtifactStagingDirectory)'
+              tags: |
+                $(Build.BuildId)
+                latest
+          - task: AzureCLI@2
+            displayName: 'Portal Container App Update'
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                # Add containerapp extension
+                az extension add --name containerapp --upgrade
+                
+                # Update revision
+                az containerapp revision copy --name "$(PORTAL_CAPP)"  --resource-group "$(RESOURCE_GROUP)" --image "acrflowchartdeveus.azurecr.io/portal:$(Build.BuildId)"
+    - job: BuildDesignerApp
+      displayName: 'Build DesignerApp'
+      condition: "true"
+      steps:
+          - task: NodeTool@0
+            inputs:
+                versionSpec: '18.x'
+            displayName: 'Install Node.js'
+          - task: AzureKeyVault@2
+            displayName: ‘KV Auth’
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              KeyVaultName: '$(KEY_VAULT)'
+              SecretsFilter: 'id-rsa'
+              RunAsPreJob: true
+          - task: CmdLine@2
+            inputs:
+              script: |
+                #!/bin/bash
+                mkdir -p ~/.ssh
+                
+                # Bitbucket ReadOnly Permission
+                echo "$(id-rsa)" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+                ssh-keyscan bitbucket.org >>~/.ssh/known_hosts
+                
+          - task: npmAuthenticate@0
+            displayName: 'npm Authenticate'
+            inputs:
+              workingFile: './DesignerApp/TaskPane/.npmrc'
+              customEndpoint: 'npm'
+          - script: cd DesignerApp/TaskPane/ && rm manifest.xml && mv manifest.dev.xml manifest.xml
+            displayName: Provide manifest for Dev
+          - script: cd DesignerApp/TaskPane/src/config/ && rm webapi.config.ts && mv webapi.config.prod.ts webapi.config.ts
+            displayName: Apply Dev config
+          - script: cd DesignerApp/TaskPane/ && npm install
+            displayName: Install deps
+          - script: cd DesignerApp/TaskPane/ && export NODE_OPTIONS=--max-old-space-size=4096 && npm run build 
+            displayName: Build project
+          - task: CopyFiles@2
+            displayName: 'Copy DesignerApp docker'
+            inputs:
+                SourceFolder: './DesignerApp/TaskPane/docker'
+                TargetFolder: '$(Build.ArtifactStagingDirectory)/docker'
+          - task: CopyFiles@2
+            displayName: 'Copy DesignerApp dist'
+            inputs:
+                SourceFolder: './DesignerApp/TaskPane/dist'
+                TargetFolder: '$(Build.ArtifactStagingDirectory)/dist'
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish artifact'
+            inputs:
+                pathToPublish: $(Build.ArtifactStagingDirectory)
+                artifactName: OmniflowDesignerApp
+          - task: Docker@2
+            displayName: 'Designer App Image'
+            inputs:
+              containerRegistry: '$(ACR)'
+              repository: 'designer'
+              command: 'buildAndPush'
+              Dockerfile: '$(Build.ArtifactStagingDirectory)/docker/Dockerfile'
+              buildContext: '$(Build.ArtifactStagingDirectory)'
+              tags: |
+                $(Build.BuildId)
+                latest
+          - task: AzureCLI@2
+            displayName: 'Designer Container App Update'
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                # Add containerapp extension
+                az extension add --name containerapp --upgrade
+                
+                # Update revision
+                az containerapp revision copy --name "$(DESIGNER_CAPP)"  --resource-group "$(RESOURCE_GROUP)" --image "acrflowchartdeveus.azurecr.io/designer:$(Build.BuildId)"
+    - job: PublishArtifact
+      displayName: 'Publish artifact'
+      dependsOn:
+          - BuildWebAPI
+          - BuildDesignerApp
+          - BuildPortalApp
+      steps:
+          - task: CopyFiles@2
+            displayName: 'Copy files'
+            inputs:
+                SourceFolder: './'
+                TargetFolder: '$(Build.ArtifactStagingDirectory)'
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish artifact'
+            inputs:
+                pathToPublish: $(Build.ArtifactStagingDirectory)
+                artifactName: OmniflowArtifact
+          - task: AzureKeyVault@2
+            displayName: ‘KV Auth’
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              KeyVaultName: '$(KEY_VAULT)'
+              SecretsFilter: 'id-rsa'
+              RunAsPreJob: true
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az keyvault secret show --vault-name "${VAULT_KEY_NAME}" --name "serveroverride" --query value > serveroverride-temp.cfg
+                sed 's/.//' serveroverride-temp.cfg | sed 's/.$//' | awk '{gsub(/\\n/,"\n")}1' | sed 's/\\"/"/g' > $(Build.ArtifactStagingDirectory)/appsettings.override.json
+          - task: CmdLine@2
+            inputs:
+              script: |
+                cd WebAPI
+                ls
+                #!/bin/bash
+                mkdir -p ~/.ssh
+                
+                # Bitbucket ReadOnly Permission
+                echo "$(id-rsa)" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+                ssh-keyscan bitbucket.org >>~/.ssh/known_hosts
+                
+                # Download Secret Entrypoint from a central location
+                git archive --remote=git@bitbucket.org:annalect/devops.git release -- deployment-scripts/azure/secrets-entrypoint-mcs.sh | tar -xO > $(Build.ArtifactStagingDirectory)/secrets-entrypoint.sh
+                
+                #Permissions for Secret Entrypoint file
+                chmod u+x secrets-entrypoint.sh
+                
+                #Updating the Dockerfile
+                sed -i '/CMD/d' $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile
+                # sed -i '/ENTRYPOINT/d' $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile
+                echo "Injecting content to Dockerfile"
+                echo "" >> $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile 
+                echo "### DEVOPS CODE INJECTION" >> Dockerfile 
+                echo 'COPY secrets-entrypoint.sh /' >> $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile
+                echo 'RUN chmod +x /secrets-entrypoint.sh' >> $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile
+                # echo 'ENTRYPOINT ["/secrets-entrypoint.sh","dotnet","WebAPI.dll" ]' >> $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile
+                echo 'COPY appsettings.override.json /app/' >> $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile
+                echo 'CMD ["dotnet", "WebAPI.dll"]' >> $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile
+                cat $(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile
+                # echo 'COPY $(Build.ArtifactStagingDirectory)/secrets-entrypoint.sh' >> (Build.ArtifactStagingDirectory)/WebAPI/
+            displayName: 'Executable Script'
+          - task: Docker@2
+            displayName: 'Backend Image'
+            inputs:
+              containerRegistry: '$(ACR)'
+              repository: 'backend'
+              command: 'buildAndPush'
+              Dockerfile: '$(Build.ArtifactStagingDirectory)/WebAPI/Dockerfile'
+              buildContext: '$(Build.ArtifactStagingDirectory)'
+              tags: |
+                $(Build.BuildId)
+                latest
+          - task: AzureCLI@2
+            displayName: 'Backend Container App Update'
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                # Add containerapp extension
+                az extension add --name containerapp --upgrade
+                
+                # Update revision
+                az containerapp revision copy --name "$(BACKEND_CAPP)" --resource-group "$(RESOURCE_GROUP)" --image "acrflowchartdeveus.azurecr.io/backend:$(Build.BuildId)"
+- stage: DBMigration
+  condition: "true"
+  jobs:
+    - job: SQLMigration
+      variables:
+        sqlusername: $(SQLSERVER-ADMINISTRATOR-LOGIN)
+        sqlpassword: $(SQLSERVER-ADMINISTRATOR-LOGIN-PASSWORD)
+      pool:
+       vmImage: windows-latest
+      steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'OmniflowArtifact'
+              downloadPath: '$(System.ArtifactsDirectory)'
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az keyvault secret download --vault-name $(KEY_VAULT) --name serveroverride --file appsettings.override.json --encoding utf-8
+                cd $(System.ArtifactsDirectory)
+                ls
+              workingDirectory: '$(System.ArtifactsDirectory)'
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(System.ArtifactsDirectory)'
+              Contents: 'appsettings.override.json'
+              TargetFolder: '$(System.ArtifactsDirectory)/OmniflowArtifact/WebAPI'
+          - task: UseDotNet@2
+            inputs:
+              version: '9.0.x'
+            displayName: Install dotnet 9.0.x
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'custom'
+              custom: 'tool'
+              arguments: 'update --global dotnet-ef --version 9.0.8'
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'custom'
+              custom: 'tool'
+              arguments: 'restore'
+              workingDirectory: '$(System.ArtifactsDirectory)/OmniflowArtifact/WebAPI'
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'custom'
+              custom: 'ef'
+              arguments: 'migrations script --context "PortalDbContext" --output "./scripts/schema.sql" --idempotent'
+              workingDirectory: '$(System.ArtifactsDirectory)/OmniflowArtifact/WebAPI'
+          - task: SqlAzureDacpacDeployment@1
+            inputs:
+              azureSubscription: '$(SUBSCRIPTION)'
+              AuthenticationType: 'server'
+              ServerName: '$(SQL_SERVER)'
+              DatabaseName: '$(SQL_DB)'
+              SqlUsername: '$(sqlusername)'
+              SqlPassword: '$(sqlpassword)'
+              deployType: 'SqlTask'
+              SqlFile: '$(System.ArtifactsDirectory)/OmniflowArtifact/WebAPI/scripts/schema.sql'
+              IpDetectionMethod: 'AutoDetect'

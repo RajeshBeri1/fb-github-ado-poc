@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+    webapi:
+        image: ${DOCKER_REGISTRY-}webapi
+        container_name: webapi
+        environment:
+            - EnforceHttps=false
+            - ASPNETCORE_ENVIRONMENT=Development
+            - ASPNETCORE_URLS=http://+:5193
+            - ConnectionStrings__PortalDb=Data Source=mssql;Initial Catalog=OMGReportDesigner;User=sa;Password=Password12345678!;
+            - ConnectionStrings__Redis=redis:6379
+            - ConnectionStrings__Azurite__blob=DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/devstoreaccount1
+        ports:
+            - 5193:5193
+        build:
+            context: .
+            dockerfile: WebAPI/Dockerfile
+    redis:
+        image: redis:alpine
+        container_name: redis
+        ports:
+            - 6379:6379
+    azurite:
+        image: mcr.microsoft.com/azure-storage/azurite
+        container_name: azurite
+        ports:
+            - 10000:10000
+            - 10001:10001
+            - 10002:10002
+    mssql:
+        image: 'mcr.microsoft.com/azure-sql-edge'
+        container_name: mssql
+        volumes:
+            - mssql:/var/opt/mssql/
+        ports:
+            - 1444:1433
+        environment:
+            SA_PASSWORD: 'Password12345678!'
+            ACCEPT_EULA: 'Y'
+volumes:
+    mssql:

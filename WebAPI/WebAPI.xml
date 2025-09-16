@@ -1,0 +1,1351 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:WebAPI.Controllers.CalendarOverlayTemplateController">
+            <summary>
+            CalendarOverlayTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarOverlayTemplateController.#ctor(Lib.WebAPI.Business.CalendarOverlayTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see
+            cref="T:WebAPI.Controllers.CalendarOverlayTemplateController" /> class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarOverlayTemplateController.Create(Lib.WebAPI.DTOs.CalendarOverlayTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the specified overlay template.
+            </summary>
+            <param name="overlayTemplate">The overlay template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarOverlayTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarOverlayTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarOverlayTemplateController.List(Lib.WebAPI.DTOs.CalendarOverlayTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified search.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarOverlayTemplateController.Update(Lib.WebAPI.DTOs.CalendarOverlayTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified overlay template.
+            </summary>
+            <param name="overlayTemplate">The overlay template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarOverlayTemplateController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate calendar overlay component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarOverlayTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.CalendarTemplateController">
+            <summary>
+            CalendarTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarTemplateController.#ctor(Lib.WebAPI.Business.Interfaces.ICalendarTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.CalendarTemplateController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarTemplateController.Create(Lib.WebAPI.DTOs.CalendarTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the calendar template.
+            </summary>
+            <param name="calendarTemplate">The calendar template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the calendar template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the calendar template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarTemplateController.List(Lib.WebAPI.DTOs.CalendarTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the calendar templates.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarTemplateController.Update(Lib.WebAPI.DTOs.CalendarTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the calendar template.
+            </summary>
+            <param name="calendarTemplate">The calendar template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarTemplateController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate calendar component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CalendarTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.ClientController">
+            <summary>
+            ClientController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.#ctor(Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.IClientControllerLogic,Lib.Annalect.Business.AnnalectApiClient,Lib.WebAPI.Business.DefaultTemplateUpdater,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.ClientController" /> class.
+            </summary>
+            <param name="userProvider">The user provider.</param>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="apiClient">The API client.</param>
+            <param name="defaultTemplateUpdater">The default template updater.</param>
+            <param name="httpContextAccessor">The HTTP context accessor.</param>"
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.List(Lib.WebAPI.DTOs.OmniClientSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the clients.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.Create(Lib.WebAPI.DTOs.OmniClientInfoDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new client with omni id mapping.
+            </summary>
+            <param name="omniClient">The omniClient info.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get Client Details by Omni Guid.
+            </summary>
+            <param name="id">The client omni guid.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.CreateOmniClient(Lib.WebAPI.DTOs.OmniClientInfoDTO,System.Threading.CancellationToken)">
+            <summary>
+            Create the Omni client through client name asynchronous.
+            </summary>
+            <param name="omniClient">omniClient</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.Update(System.Guid,Lib.WebAPI.DTOs.OmniClientInfoDTO,System.Threading.CancellationToken)">
+            <summary>
+            Update the client details asynchronous.
+            </summary>
+            <param name="clientId">clientId</param>
+            <param name="omniClient">omniClient</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Soft Delete the client asynchronous.
+            </summary>
+            <param name="clientId">clientId</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.DeleteOmniClient(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete the omni client
+            </summary>
+            <param name="omniClientId">omniClientId</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.GetClientByName(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get client details by name
+            </summary>
+            <param name="name">name</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.UpdateParent(System.Guid,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Update the parent client.
+            </summary>
+            <param name="id">omni client id</param>
+            <param name="parentId">parent omni client id</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.CreateClientMapping(Lib.WebAPI.DTOs.ClientMappingCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Create a client mapping.
+            </summary>
+            <param name="clientMappingCreateDTO">The omniClient info.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.UpdateClientMapping(Lib.WebAPI.DTOs.ClientMappingUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Update a client mapping.
+            </summary>
+            <param name="clientMappingUpdateDTO">The omniClient info.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.UpdateIncludeSourceMediaToolsData(System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Update Include Source MediaTools Data.
+            </summary>
+            <param name="clientId">The clientId</param>
+            <param name="includeSourceMediaToolsData">The includeSourceMediaToolsData</param>
+            <param name="cancellationToken">The cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientController.GetAllClientMappingList(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Get all the Client Mapping list.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="removed">The Removed.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.CommonController">
+            <summary>
+            CommonController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.CommonController.#ctor(Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.CommonController" />
+            class.
+            </summary>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.CommonController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.DataController">
+            <summary>
+            DataController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.#ctor(Lib.WebAPI.Business.DataControllerLogic,Lib.WebAPI.Business.DataControllerLogicPmds,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.IClientControllerLogic,Lib.WebAPI.Business.SecurityLogic,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.DataController" /> class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="dataControllerLogicPmds">The data controller logic pmds.</param>
+            <param name="clientControllerLogic">The client Controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="securityLogic">The securityLogic</param>
+            <param name="httpContextAccessor">The http context accessor.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetBroadcastCalendar(System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Gets the broadcast calendar.
+            </summary>
+            <param name="year">The year.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetBroadcastCalendar(System.DateTime,System.DateTime,System.Threading.CancellationToken)">
+            <summary>
+            Gets the broadcast calendar.
+            </summary>
+            <param name="startDate">The start date.</param>
+            <param name="endDate">The end date.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetClientCalendar(System.String,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the client calendar.
+            </summary>
+            <param name="year">The year.</param>
+            <param name="omniClientId">The omni client identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetClientCalendar(System.DateTime,System.DateTime,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the client calendar.
+            </summary>
+            <param name="startDate">The start date.</param>
+            <param name="endDate">The end date.</param>
+            <param name="omniClientId">The omni client identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetData(Lib.WebAPI.DTOs.DataRequestDTO,System.Threading.CancellationToken)">
+            <summary>
+            Gets the data.
+            </summary>
+            <param name="dataRequest">The data request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetDistinctData(Lib.WebAPI.DTOs.DistinctDataDTO,System.Threading.CancellationToken)">
+            <summary>
+            Gets the distinct data.
+            </summary>
+            <param name="distinctData">The distinct data.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetHeaderData(Lib.WebAPI.DTOs.HeaderDataRequestDTO,System.Threading.CancellationToken)">
+            <summary>
+            Gets the header data.
+            </summary>
+            <param name="headerDataRequest">The header data request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetSummaryData(Lib.WebAPI.DTOs.SummaryDataRequestDTO,System.Threading.CancellationToken)">
+            <summary>
+            Gets the summary data.
+            </summary>
+            <param name="summaryDataRequest">The summary data request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.CheckOmniGuidExists(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Check the omni guid exists in Planit AMD database.
+            </summary>
+            <param name="omniClientId">omniClientId</param>
+            <param name="cancellationToken">cancellationToken</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataController.GetPreviousLevelDistinctData(Lib.WebAPI.DTOs.DistinctDataDTO,System.Threading.CancellationToken)">
+            <summary>
+            Gets the previous level distinct data.
+            </summary>
+            <param name="distinctData">The distinct data.</param>
+            <param name="ansid">The ansid</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.DataDictionaryController">
+            <summary>
+            DataDictionaryController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.DataDictionaryController.#ctor(Lib.WebAPI.Business.DataDictionaryControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.DataDictionaryController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataDictionaryController.Get(System.Guid,Lib.WebAPI.Enums.DisplaySource,System.Threading.CancellationToken)">
+            <summary>
+            Gets the complete data dictionary.
+            </summary>
+            <param name="omniClientId">The omni client identifier.</param>
+            <param name="displaySource">The display source.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataDictionaryController.GetBroadcastCalendarColumns(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the broadcast calendar columns.
+            </summary>
+            <param name="omniClientId">The omni client identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataDictionaryController.GetClientCalendarColumns(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the client calendar columns.
+            </summary>
+            <param name="omniClientId">The omni client identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataDictionaryController.UpdateClientDetailsByOmniClientId(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Update the client details by ClientId.
+            </summary>
+            <param name="omniClientId">The omni client id identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DataDictionaryController.RefreshDataDictionaryTables(System.Threading.CancellationToken)">
+            <summary>
+            Refresh the DataDictionary Tables data manually.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.DefaultTemplateController">
+            <summary>
+            DefaultTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.DefaultTemplateController.#ctor(Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.IDefaultTemplateServices,Lib.WebAPI.Business.DefaultTemplateUpdater,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.DefaultTemplateController" />
+            class.
+            </summary>
+            <param name="userProvider">The user provider.</param>
+            <param name="defaultTemplateServices">The common services.</param>
+            <param name="defaultTemplateUpdater">The default template updater.</param>
+            <param name="httpContextAccessor">The HTTP context accessor.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DefaultTemplateController.CreateDefaultTemplate(System.Collections.Generic.List{Lib.WebAPI.DTOs.DefaultTemplateDTO},System.Threading.CancellationToken)">
+            <summary>
+            Create the default templates.
+            </summary>
+            <param name="createDefaultTemplates">createDefaultTemplates</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.DefaultTemplateController.UpdateDefaultTemplate(Lib.WebAPI.DTOs.UpdateDefaultTemplateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Update the default Template.
+            </summary>
+            <param name="updateDefaultTemplate">updateDefaultTemplate</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.DefaultTemplateController.List(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Get all the default template details list.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="removed">The Removed.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DefaultTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete the default template record.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DefaultTemplateController.CreateOrUpdateDefaultTemplateForAllClients(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Get all the default template details list.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="isUpdate">The isUpdate.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DefaultTemplateController.CreateUpdateDefaultComponent(Lib.WebAPI.DTOs.CreateUpdateDefaultComponentDTO,System.Threading.CancellationToken)">
+            <summary>
+            Check the create or update Default Component.
+            </summary>
+            <param name="createUpdateDefaultComponentDTO">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.DocumentController">
+            <summary>
+            DocumentController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.DocumentController.#ctor(Lib.WebAPI.Business.DocumentControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.DocumentController" /> class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DocumentController.GenerateExcelDocumentRun(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Generates the excel document run.
+            </summary>
+            <param name="runConfigurationId">The run configuration identifier.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DocumentController.GenerateExcelDocumentTemplate(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Generates the excel document template.
+            </summary>
+            <param name="flowchartTemplateId">The flowchart template identifier.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DocumentController.GenerateExcelDocumentReportId(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Generates the excel document by report Id.
+            </summary>
+            <param name="reportId">The report identifier.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.DocumentController.GenerateExcelDocumentByFlowchartTemplateVersionHistoryId(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Generates the excel document by flowchartTemplateVersionHistoryId.
+            </summary>
+            <param name="flowchartTemplateVersionHistoryId">The flowchartTemplateVersionHistory identifier.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.FieldInfoController">
+            <summary>
+            CommonController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.FieldInfoController.#ctor(Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.IFieldInfoServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.FieldInfoController" />
+            class.
+            </summary>
+            <param name="userProvider">The user provider.</param>
+            <param name="fieldInfoServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FieldInfoController.CreateFieldInfo(System.Collections.Generic.List{Lib.WebAPI.DTOs.FieldInfoDto},System.Threading.CancellationToken)">
+            <summary>
+            Create the CreateFieldInfo asynchronous.
+            </summary>
+            <param name="fieldInfoDto">fieldInfoDto</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.FieldInfoController.UpdateFieldInfo(Lib.WebAPI.DTOs.UpdateFieldInfoDto,System.Threading.CancellationToken)">
+            <summary>
+            Update the UpdateFieldInfo asynchronous.
+            </summary>
+            <param name="updateFieldInfoDto">updateFieldInfoDto</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.FieldInfoController.List(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Get all the FieldInfo list.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="removed">The Removed.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FieldInfoController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the FieldInfo record.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.FlowchartTemplateController">
+            <summary>
+            FlowchartTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.#ctor(Lib.WebAPI.Business.Interfaces.IFlowchartTemplateControllerLogic,Lib.WebAPI.Business.RunConfigurationControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.Annalect.Business.AnnalectApiClient,Lib.WebAPI.Business.SecurityLogic,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.FlowchartTemplateController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="runConfigLogic">The runconfig logic</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="annalectApiClient">The annalectApiClient.</param>
+            <param name="securityLogic">The securityLogic</param>
+            <param name="httpContextAccessor">The httpContextAccessor</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.Create(Lib.WebAPI.DTOs.FlowchartTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new template.
+            </summary>
+            <param name="flowchartTemplate">The flowchart template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the template by id.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.List(Lib.WebAPI.DTOs.FlowchartTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the templates.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.Update(Lib.WebAPI.DTOs.FlowchartTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the template.
+            </summary>
+            <param name="update">The update.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.Search(Lib.WebAPI.DTOs.FlowchartTemplateVersionSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Search the template details from Flowchart Template Version history table.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.CheckDuplicateTemplateName(Lib.WebAPI.DTOs.FlowchartTemplateDuplicateCheckDTO,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate template name.
+            </summary>
+            <param name="flowchartTemplate">The flowchart template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.UpdateFlowChartTemplateNameById(Lib.WebAPI.DTOs.UpdateFlowchartTemplateNameDto,System.Threading.CancellationToken)">
+            <summary>
+            Update the flowchart template name by using flowchart template Id .
+            </summary>
+            <param name="updateflowchartTemplateName">The flowchart template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.FlowchartTemplateShareInfo(Lib.WebAPI.DTOs.FlowchartShareTemplateInfoDTO,System.Threading.CancellationToken)">
+            <summary>
+            Get the flowchart template component names with client list.
+            </summary>
+            <param name="flowchartShareTemplateInfoDTO">The flowchartShareTemplateInfoDTO.</param>
+            <param name="cancellationToken">The cancellation token.</param>// FlowchartTemplateShareInfoDTO
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.SaveSharetemplate(Lib.WebAPI.DTOs.FlowChartTemplateShareDetailsDTO,System.Threading.CancellationToken)">
+            <summary>
+            Save flowchart share template.
+            </summary>
+            <param name="flowChartTemplateShareDetailsDTO">The flowChartTemplateShareDetailsDTO.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.SaveAs(Lib.WebAPI.DTOs.SaveFlowchartDTO,System.Threading.CancellationToken)">
+            <summary>
+            Save As flowchart template.
+            </summary>
+            <param name="saveFlowchartDTO">The Save Flowchart template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplateController.GetDefaultFlowchartTemplateListByTemplateName(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get Default FlowchartTemplate list By Template Name.
+            </summary>
+            <param name="templateName">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.FlowchartTemplatesHistortyController">
+            <summary>
+            FlowchartTemplatesHistortyController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplatesHistortyController.#ctor(Lib.WebAPI.Business.Interfaces.IFlowchartTemplatesHistortyControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.FlowchartTemplatesHistortyController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FlowchartTemplatesHistortyController.List(Lib.WebAPI.DTOs.FlowchartTemplatesVersionHistortySearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified search.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.FooterTemplateController">
+            <summary>
+            FooterTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.FooterTemplateController.#ctor(Lib.WebAPI.Business.Interfaces.IFooterTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.FooterTemplateController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FooterTemplateController.Create(Lib.WebAPI.DTOs.FooterTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the footer template.
+            </summary>
+            <param name="footerTemplate">The footer template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FooterTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the footer template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FooterTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the footer template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FooterTemplateController.List(Lib.WebAPI.DTOs.FooterTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the footer templates.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FooterTemplateController.Update(Lib.WebAPI.DTOs.FooterTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the footer template.
+            </summary>
+            <param name="footerTemplate">The footer template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FooterTemplateController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate Footer component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.FooterTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.GrandTotalTemplateController">
+            <summary>
+            GrantTotalTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.GrandTotalTemplateController.#ctor(Lib.WebAPI.Business.GrandTotalTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.GrandTotalTemplateController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.GrandTotalTemplateController.Create(Lib.WebAPI.DTOs.GrandTotalTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the specified grand total template.
+            </summary>
+            <param name="grandTotalTemplate">The grand total template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.GrandTotalTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified grand total template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.GrandTotalTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the specified grand total template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.GrandTotalTemplateController.List(Lib.WebAPI.DTOs.GrandTotalTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the grand total templates.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.GrandTotalTemplateController.Update(Lib.WebAPI.DTOs.GrandTotalTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified grand total template.
+            </summary>
+            <param name="grandTotalTemplate">The grand total template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.GrandTotalTemplateController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate grand totals component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.GrandTotalTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.HeaderTemplateController">
+            <summary>
+            HeaderTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.HeaderTemplateController.#ctor(Lib.WebAPI.Business.Interfaces.IHeaderTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.HeaderTemplateController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.HeaderTemplateController.Create(Lib.WebAPI.DTOs.HeaderTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the header template.
+            </summary>
+            <param name="headerTemplate">The header template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.HeaderTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the header template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.HeaderTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the header template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.HeaderTemplateController.List(Lib.WebAPI.DTOs.HeaderTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the header templates.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.HeaderTemplateController.Update(Lib.WebAPI.DTOs.HeaderTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the header template.
+            </summary>
+            <param name="headerTemplate">The header template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.HeaderTemplateController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate header component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.HeaderTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.MediaHierarchyTemplateController">
+            <summary>
+            MediaHierarchyController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaHierarchyTemplateController.#ctor(Lib.WebAPI.Business.Interfaces.IMediaHierarchyTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.MediaHierarchyTemplateController"
+            /> class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaHierarchyTemplateController.Create(Lib.WebAPI.DTOs.MediaHierarchyTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the media hierarchy template.
+            </summary>
+            <param name="mediaHierarchyTemplate">The media hierarchy template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaHierarchyTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the media hierarchy template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaHierarchyTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the media hierarchy template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaHierarchyTemplateController.List(Lib.WebAPI.DTOs.MediaHierarchyTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the media hierarchy templates.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaHierarchyTemplateController.Update(Lib.WebAPI.DTOs.MediaHierarchyTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the media hierarchy template.
+            </summary>
+            <param name="mediaHierarchyTemplate">The media hierarchy template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaHierarchyTemplateController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate media hierarchy component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaHierarchyTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.MediaopsToFlowChartController">
+            <summary>
+            MediaopsToFlowChartController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaopsToFlowChartController.#ctor(Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.MediaopsToFlowChart.Business.MediaopsToFlowChartImportApi,Lib.WebAPI.Business.MediaopsControllerLogic,Lib.Annalect.Business.AnnalectApiClient,Lib.WebAPI.Business.Interfaces.IClientControllerLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.MediaopsToFlowChartController" /> class.
+            </summary>
+            <param name="userProvider">The user provider.</param>
+            <param name="mediaopsToFlowChartImportApi">The mediaopsToFlowChartImportApi provider.</param>
+            <param name="mediaopsControllerLogic">The mediaopsControllerLogic.</param>
+            <param name="apiClient">The apiClient.</param>
+            <param name="clientControllerLogic">The clientControllerLogic.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MediaopsToFlowChartController.Get(Lib.MediaopsToFlowChart.DTO.MediaopsColumnSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Get Media Hierarchy Column details by cliendId.
+            </summary>
+            <param name="mediaopsColumnSearchDTO">The client omni guid.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.MigrationController">
+            <summary>
+            MigrationController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.MigrationController.#ctor(Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.IMigrationControllerLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.MigrationController" />
+            class.
+            </summary>
+            <param name="userProvider">The user provider.</param>
+            <param name="migrationControllerLogic">The migrationControllerLogic.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MigrationController.CreateMigration(System.Collections.Generic.List{Lib.WebAPI.DTOs.CreatePlannedMediaMigrationDTO},System.Threading.CancellationToken)">
+            <summary>
+            Create the migration data asynchronous.
+            </summary>
+            <param name="createPlannedMediaMigrationDTO">createPlannedMediaMigrationDTO</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.MigrationController.UpdateMigration(Lib.WebAPI.DTOs.UpdatePlannedMediaMigrationDTO,System.Threading.CancellationToken)">
+            <summary>
+            Update the migration data asynchronous.
+            </summary>
+            <param name="updatePlannedMediaMigrationDTO">updatePlannedMediaMigrationDTO</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.MigrationController.List(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Gets the migration list.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="removed">The Removed.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MigrationController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the migration record.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.MigrationController.MigrateClientToNewVersion(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Migrate flowchart defintion by using omniGuid asynchronous.
+            </summary>
+            <param name="omniClientId">omniClientId</param>
+            <param name="connectionId">The connectionId.</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.MigrationController.MigrateClientToInitialVersion(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Migrate flowchart defintion by using omniGuid asynchronous.
+            </summary>
+            <param name="omniClientId">omniClientId</param>
+            <param name="connectionId">The connectionId.</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.MigrationController.GetMediaHierarchyColumnUsesDetails(System.String,System.Nullable{System.Guid},System.Threading.CancellationToken)">
+            <summary>
+            Get MediaHierarchy Column Uses Details.
+            </summary>
+            <param name="name">name</param>
+            <param name="omniClientId">omniClientId</param>
+            <param name="cancellationToken">cancellationToken</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> representing the result of the asynchronous operation.</returns>
+        </member>
+        <member name="T:WebAPI.Controllers.ReportController">
+            <summary>
+            ReportController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.ReportController.#ctor(Lib.WebAPI.Business.ReportControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.ReportController" /> class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ReportController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified report.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ReportController.Download(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Downloads the specified report.
+            </summary>
+            <param name="id">The report identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ReportController.DownloadByFlowChartTemplateId(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Downloads the specified latest Flowchart template report by flowChartTemplateId.
+            </summary>
+            <param name="id">The flowchart identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ReportController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ReportController.List(Lib.WebAPI.DTOs.ReportSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified search.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ReportController.Publish(Lib.WebAPI.DTOs.ReportPublishDTO,System.Threading.CancellationToken)">
+            <summary>
+            Publishes the specified report.
+            </summary>
+            <param name="reportPublish">The report publish.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ReportController.RestoreFlowchart(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the flowchart.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.RunConfigurationController">
+            <summary>
+            RunConfigurationController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.RunConfigurationController.#ctor(Lib.WebAPI.Business.RunConfigurationControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.RunConfigurationController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.RunConfigurationController.Create(Lib.WebAPI.DTOs.RunConfigurationCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the specified run configuration.
+            </summary>
+            <param name="runConfiguration">The run configuration.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.RunConfigurationController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified run configuration.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.RunConfigurationController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the specified run configuration.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.RunConfigurationController.List(Lib.WebAPI.DTOs.RunConfigurationSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified search.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.RunConfigurationController.Update(Lib.WebAPI.DTOs.RunConfigurationUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified run configuration.
+            </summary>
+            <param name="runConfiguration">The run configuration.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.SummaryTemplateController">
+            <summary>
+            SummaryTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.SummaryTemplateController.#ctor(Lib.WebAPI.Business.SummaryTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.SummaryTemplateController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.SummaryTemplateController.Create(Lib.WebAPI.DTOs.SummaryTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the specified summary template.
+            </summary>
+            <param name="summaryTemplate">The summary template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.SummaryTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified summary template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.SummaryTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the specified summary template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.SummaryTemplateController.List(Lib.WebAPI.DTOs.SummaryTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified summary templates.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.SummaryTemplateController.Update(Lib.WebAPI.DTOs.SummaryTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified summary template.
+            </summary>
+            <param name="summaryTemplate">The summary template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.ThemeTemplateController">
+            <summary>
+            ThemeController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.ThemeTemplateController.#ctor(Lib.WebAPI.Business.ThemeTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.ThemeTemplateController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ThemeTemplateController.Create(Lib.WebAPI.DTOs.ThemeTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the specified theme template.
+            </summary>
+            <param name="themeTemplate">The theme template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ThemeTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified theme template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ThemeTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the specified theme template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ThemeTemplateController.List(Lib.WebAPI.DTOs.ThemeTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the theme templates.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ThemeTemplateController.Update(Lib.WebAPI.DTOs.ThemeTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified theme template.
+            </summary>
+            <param name="themeTemplate">The theme template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ThemeTemplateController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate Theme component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.ThemeTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.TotalsTemplateController">
+            <summary>
+            TotalsTemplateController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.TotalsTemplateController.#ctor(Lib.WebAPI.Business.TotalsTemplateControllerLogic,Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.Interfaces.ICommonServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.TotalsTemplateController" />
+            class.
+            </summary>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="userProvider">The user provider.</param>
+            <param name="commonServices">The common services.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.TotalsTemplateController.Create(Lib.WebAPI.DTOs.TotalsTemplateCreateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Creates the specified totals template.
+            </summary>
+            <param name="totalsTemplate">The totals template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.TotalsTemplateController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified totals template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.TotalsTemplateController.Get(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the specified totals template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.TotalsTemplateController.List(Lib.WebAPI.DTOs.TotalsTemplateSearchDTO,System.Threading.CancellationToken)">
+            <summary>
+            Lists the specified search.
+            </summary>
+            <param name="search">The search.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.TotalsTemplateController.Update(Lib.WebAPI.DTOs.TotalsTemplateUpdateDTO,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified totals template.
+            </summary>
+            <param name="totalsTemplate">The totals template.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.TotalsTemplateController.CheckDuplicateComponentName(Lib.WebAPI.DTOs.DuplicateNameCheckDto,System.Threading.CancellationToken)">
+            <summary>
+            Check the duplicate RightHandTotals component name.
+            </summary>
+            <param name="duplicateNameCheckDto">The duplicate name check Dto.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.TotalsTemplateController.Restore(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Restores the template.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:WebAPI.Controllers.UserController">
+            <summary>
+            UserController
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.UserController.#ctor(Lib.WebAPI.Business.Interfaces.IUserProvider,Lib.WebAPI.Business.UserControllerLogic,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Lib.Annalect.Business.AnnalectApiClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebAPI.Controllers.UserController" /> class.
+            </summary>
+            <param name="userProvider">The user provider.</param>
+            <param name="controllerLogic">The controller logic.</param>
+            <param name="environment">The environment.</param>
+            <param name="apiClient">The apiClient.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.UserController.Current(System.Threading.CancellationToken)">
+            <summary>
+            Gets the current user.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.UserController.Login(Lib.WebAPI.DTOs.LoginDTO,System.Threading.CancellationToken)">
+            <summary>
+            Logins the specified user. For development only.
+            </summary>
+            <param name="login">The login.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.UserController.ValidateToken(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Validate the current user token
+            </summary>
+            <param name="token">Omni session token.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.UserController.ExtendSession(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Extend the current user token expiration time
+            </summary>
+            <param name="token">Omni session token.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+    </members>
+</doc>

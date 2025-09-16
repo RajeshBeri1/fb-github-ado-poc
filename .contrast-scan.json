@@ -1,0 +1,8 @@
+{
+  "excludes": [
+    "**/appsettings.override.json",
+    "**/ClientApp/codegen/webapi.json",
+    "**/runtime.json",
+  "packages/**/*.json"
+  ]
+}
