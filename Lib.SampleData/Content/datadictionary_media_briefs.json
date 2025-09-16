@@ -1,0 +1,130 @@
+[
+  {
+    "Name": "plantype",
+    "Type": "String"
+  },
+  {
+    "Name": "channel",
+    "Type": "String"
+  },
+  {
+    "Name": "subchannel",
+    "Type": "String"
+  },
+  {
+    "Name": "buymethod",
+    "Type": "String"
+  },
+  {
+    "Name": "briefdetail",
+    "Type": "String"
+  },
+  {
+    "Name": "mygrid_flightstartdate",
+    "Type": "Date"
+  },
+  {
+    "Name": "mygrid_flightenddate",
+    "Type": "Date"
+  },
+  {
+    "Name": "briefedctc",
+    "Type": "Decimal"
+  },
+  {
+    "Name": "briefedctc_local",
+    "Type": "Decimal"
+  },
+  {
+    "Name": "localchannel",
+    "Type": "String"
+  },
+  {
+    "Name": "channeltype",
+    "Type": "String"
+  },
+  {
+    "Name": "channelsubtype",
+    "Type": "String"
+  },
+  {
+    "Name": "mediatype1",
+    "Type": "String"
+  },
+  {
+    "Name": "predictivetrigger",
+    "Type": "String"
+  },
+  {
+    "Name": "mediaauthheader",
+    "Type": "String"
+  },
+  {
+    "Name": "brand4",
+    "Type": "String"
+  },
+  {
+    "Name": "brand5",
+    "Type": "String"
+  },
+  {
+    "Name": "brand6",
+    "Type": "String"
+  },
+  {
+    "Name": "mediatype2",
+    "Type": "String"
+  },
+  {
+    "Name": "mediatype3",
+    "Type": "String"
+  },
+  {
+    "Name": "mediatype4",
+    "Type": "String"
+  },
+  {
+    "Name": "buysystemfilter",
+    "Type": "String"
+  },
+  {
+    "Name": "system_mediaplanid",
+    "Type": "String"
+  },
+  {
+    "Name": "system_campaignid",
+    "Type": "String"
+  },
+  {
+    "Name": "effective_date",
+    "Type": "Date"
+  },
+  {
+    "Name": "omniguid",
+    "Type": "String"
+  },
+  {
+    "Name": "mygrid_channel",
+    "Type": "String"
+  },
+  {
+    "Name": "data_state",
+    "Type": "String"
+  },
+  {
+    "Name": "mixtypeid",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "media_brief_id",
+    "Type": "String"
+  },
+  {
+    "Name": "plan_id",
+    "Type": "String"
+  },
+  {
+    "Name": "amd_state",
+    "Type": "String"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "Name": "client_id",
+    "Type": "String"
+  },
+  {
+    "Name": "manasalias",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "tablename",
+    "Type": "String"
+  },
+  {
+    "Name": "columnname",
+    "Type": "String"
+  },
+  {
+    "Name": "columnalias",
+    "Type": "String"
+  },
+  {
+    "Name": "description",
+    "Type": "String"
+  },
+  {
+    "Name": "columndatatype",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "columndatalength",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "isinvisible",
+    "Type": "Boolean"
+  },
+  {
+    "Name": "createddate",
+    "Type": "Date"
+  },
+  {
+    "Name": "affiliated_database",
+    "Type": "String"
+  },
+  {
+    "Name": "amd_table_name",
+    "Type": "String"
+  },
+  {
+    "Name": "agency",
+    "Type": "String"
+  },
+  {
+    "Name": "client",
+    "Type": "String"
+  }
+]

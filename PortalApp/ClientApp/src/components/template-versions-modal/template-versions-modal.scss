@@ -1,0 +1,85 @@
+.customModal{
+  width: 80%;
+  box-shadow: rgb(10 10 10 / 10%) 0px 0.5em 1em -0.125em, rgb(10 10 10 / 2%) 0px 0px 0px 1px;
+}
+
+td:first-child {
+   max-width: 18vw; 
+}
+
+.versionHistory{
+  overflow-y: auto;
+  height: 47vh;
+}
+.versionHistory td{
+    overflow:inherit;
+    white-space: inherit;
+    text-overflow: inherit;
+    max-width:inherit;
+}
+.text-wrap {
+    overflow: hidden;
+    white-space: nowrap !important;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    text-transform: uppercase;
+}
+
+//omni-table::part(table-header-cell), omni-table::part(table-body-cell) {
+//    padding-left: 24px !important;
+//}
+omni-modal.dialog-min-wd-and-ht::part(dialog) {
+    min-width: 80vw !important;
+    max-width:80vw !important;
+    //min-height: 20vh !important;
+    max-height: 75vh !important;
+    background-color:#fff !important;
+}
+
+.content-margin {
+    margin: 2rem;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.is-flex {
+    display: flex !important;
+    z-index: 1000;
+}
+
+.is-align-items-center {
+    align-items: center !important;
+}
+
+.is-size-6 {
+    font-size: 1rem !important;
+}
+
+.p-1 {
+    padding: 0.25rem !important;
+}
+
+/* Target table footer */
+[part="table-footer"],
+div[part="table-footer"],
+#table-footer,
+omni-table::part(table-footer) {
+    margin-top: 60px !important; /* footer space */
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    position: relative !important;
+}
+.body-1 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.font-lg-bold {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+}

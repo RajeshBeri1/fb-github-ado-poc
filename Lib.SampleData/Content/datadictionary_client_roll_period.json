@@ -1,0 +1,82 @@
+[
+  {
+    "Name": "clientrollperiodid",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "client_id",
+    "Type": "String"
+  },
+  {
+    "Name": "weekdaydate",
+    "Type": "Date"
+  },
+  {
+    "Name": "clientyear",
+    "Type": "String"
+  },
+  {
+    "Name": "clientquarter",
+    "Type": "String"
+  },
+  {
+    "Name": "clientmonth",
+    "Type": "String"
+  },
+  {
+    "Name": "clientperiod1",
+    "Type": "String"
+  },
+  {
+    "Name": "clientperiod2",
+    "Type": "String"
+  },
+  {
+    "Name": "createddate",
+    "Type": "Date"
+  },
+  {
+    "Name": "cc_week_number",
+    "Type": "Decimal"
+  },
+  {
+    "Name": "cc_week_text",
+    "Type": "String"
+  },
+  {
+    "Name": "cc_month_number",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "cc_month_text",
+    "Type": "String"
+  },
+  {
+    "Name": "cc_quarter_number",
+    "Type": "String"
+  },
+  {
+    "Name": "cc_quarter_text",
+    "Type": "String"
+  },
+  {
+    "Name": "cc_year_number",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "cc_year_text",
+    "Type": "String"
+  },
+  {
+    "Name": "affiliated_database",
+    "Type": "String"
+  },
+  {
+    "Name": "agency",
+    "Type": "String"
+  },
+  {
+    "Name": "client",
+    "Type": "String"
+  }
+]

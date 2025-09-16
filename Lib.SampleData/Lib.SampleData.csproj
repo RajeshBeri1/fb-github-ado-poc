@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<CodeAnalysisRuleSet>..\T4M Code Rules.ruleset</CodeAnalysisRuleSet>
+		<DocumentationFile>Lib.SampleData.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Content\datadictionary_campaign.json" />
+	  <None Remove="Content\datadictionary_client.json" />
+	  <None Remove="Content\datadictionary_clientcolumnaliases.json" />
+	  <None Remove="Content\datadictionary_client_column_aliases.json" />
+	  <None Remove="Content\datadictionary_client_roll_period.json" />
+	  <None Remove="Content\datadictionary_media_briefs.json" />
+	  <None Remove="Content\datadictionary_media_plans.json" />
+	  <None Remove="Content\datadictionary_roll_period.json" />
+	  <None Remove="Content\data_campaign.json" />
+	  <None Remove="Content\data_client.json" />
+	  <None Remove="Content\data_clientcolumnaliases.json" />
+	  <None Remove="Content\data_client_column_aliases.json" />
+	  <None Remove="Content\data_client_roll_period.json" />
+	  <None Remove="Content\data_media_briefs.json" />
+	  <None Remove="Content\data_media_plans.json" />
+	  <None Remove="Content\data_roll_period.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Content\datadictionary_campaign.json" />
+	  <EmbeddedResource Include="Content\datadictionary_client.json" />
+	  <EmbeddedResource Include="Content\datadictionary_client_column_aliases.json" />
+	  <EmbeddedResource Include="Content\datadictionary_client_roll_period.json" />
+	  <EmbeddedResource Include="Content\datadictionary_media_briefs.json" />
+	  <EmbeddedResource Include="Content\datadictionary_media_plans.json" />
+	  <EmbeddedResource Include="Content\datadictionary_roll_period.json" />
+	  <EmbeddedResource Include="Content\data_campaign.json" />
+	  <EmbeddedResource Include="Content\data_client.json" />
+	  <EmbeddedResource Include="Content\data_client_column_aliases.json" />
+	  <EmbeddedResource Include="Content\data_client_roll_period.json" />
+	  <EmbeddedResource Include="Content\data_media_briefs.json" />
+	  <EmbeddedResource Include="Content\data_media_plans.json" />
+	  <EmbeddedResource Include="Content\data_roll_period.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.9" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Lib.WebAPI\Lib.WebAPI.csproj" />
+	</ItemGroup>
+
+</Project>

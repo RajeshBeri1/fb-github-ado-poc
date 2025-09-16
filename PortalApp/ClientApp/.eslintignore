@@ -1,0 +1,8 @@
+# Auto-generated WebAPI files
+# These patterns exclude the auto-generated TypeScript models from linting
+src/webapi/**/*.ts
+src/webapi/models/**/*.ts
+
+# Build output
+dist/
+build/

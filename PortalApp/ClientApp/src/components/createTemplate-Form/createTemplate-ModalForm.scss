@@ -1,0 +1,95 @@
+// Temporariliy disable the sync button
+.omni .modal {
+    background: rgba(0, 0, 0, 0.45);
+}
+.dataCard {
+    padding: 24px 0px 0px;
+}
+.error {
+    border: 1px solid var(--gradient-gradient-error, #DF5678) !important;   
+}
+.omni .message-header {
+    background: var(--core-color-core-light, #FFF) !important;
+    padding: 0 !important;
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+.omni .message-header p {
+    color: var(--core-color-core-dark-100, #3B3E3F);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.043px;
+}
+
+.omni .message-header + .message-body {
+    border-top: 1px solid rgba(237, 240, 245, 1) !important;
+}
+.omni .message .message-body {
+    padding: 16px 24px 30px !important;
+}
+.font-gr-14 {
+    color: var(--core-color-core-medium, #A2A9AD);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.043px;
+}
+.font-bl-11 {
+    color: var(--core-color-core-dark-100, #3B3E3F) !important;
+    font-size: 11px !important;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0.026px;
+}
+.font-opacity{
+    opacity:0.6;
+}
+.omni .input {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px !important;
+    letter-spacing: 0.043px;
+    padding: 6px 20px 6px 16px !important;
+}
+
+.omni .input, .omni .textarea {
+    line-height: 20px;
+    padding: 8px 36px;
+}
+
+.error-msg {
+    font-family: var(--family-sans-serif);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 8px 18px 8px 16px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    text-wrap: wrap;
+    letter-spacing: 0.032px;
+    line-height: 12px;
+}
+.error-icon omni-icon {
+    fill: rgba(223, 86, 120, 1);
+    font-size:14px;
+}
+@media screen and (min-width: 769px) {
+    .omni .modal-content, .omni .modal-card {
+        width: 506px !important;
+    }
+}
+.dataCard .label {
+    text-transform: none !important;
+}
+
+.fixed-size-small {
+    font-size:12px !important;
+}

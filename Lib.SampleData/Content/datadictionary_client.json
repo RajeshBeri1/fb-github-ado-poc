@@ -1,0 +1,78 @@
+[
+  {
+    "Name": "client_id",
+    "Type": "String"
+  },
+  {
+    "Name": "client_name",
+    "Type": "String"
+  },
+  {
+    "Name": "client_sort1",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "client_buycode",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "net_gross",
+    "Type": "String"
+  },
+  {
+    "Name": "net_percentage",
+    "Type": "Decimal"
+  },
+  {
+    "Name": "commission_net_gross",
+    "Type": "String"
+  },
+  {
+    "Name": "ddsbrandfilter",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "start_month",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "previous_year",
+    "Type": "Boolean"
+  },
+  {
+    "Name": "agency_export",
+    "Type": "String"
+  },
+  {
+    "Name": "office_id",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "clienturl",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "ddsprintnetorgross",
+    "Type": "LongInteger"
+  },
+  {
+    "Name": "isactualizing",
+    "Type": "Boolean"
+  },
+  {
+    "Name": "isplanneddefault",
+    "Type": "Boolean"
+  },
+  {
+    "Name": "affiliated_database",
+    "Type": "String"
+  },
+  {
+    "Name": "agency",
+    "Type": "String"
+  },
+  {
+    "Name": "client",
+    "Type": "String"
+  }
+]

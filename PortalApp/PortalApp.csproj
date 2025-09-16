@@ -1,0 +1,527 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+		<TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+		<IsPackable>false</IsPackable>
+		<SpaRoot>ClientApp\</SpaRoot>
+		<DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+		<SpaProxyServerUrl>https://localhost:44421</SpaProxyServerUrl>
+		<SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<CodeAnalysisRuleSet>..\T4M Code Rules.ruleset</CodeAnalysisRuleSet>
+		<DocumentationFile>PortalApp.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="9.0.9" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Don't publish the SPA source files, but do show them in the project files list -->
+		<Content Remove="$(SpaRoot)**" />
+		<None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Controllers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="ClientApp\src\webapi\.npmignore" />
+	  <None Remove="ClientApp\src\webapi\base.ts" />
+	  <None Remove="ClientApp\src\webapi\.swagger-codegen-ignore" />
+	  <None Remove="ClientApp\src\webapi\api.ts" />
+	  <None Remove="ClientApp\src\webapi\README.md" />
+	  <None Remove="ClientApp\src\webapi\git_push.sh" />
+	  <None Remove="ClientApp\src\webapi\.gitignore" />
+	  <None Remove="ClientApp\src\webapi\index.ts" />
+	  <None Remove="ClientApp\src\webapi\configuration.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\theme-template-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\grand-total-template-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\calendar-overlay-template-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\flowchart-template-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\user-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\header-template-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\media-hierarchy-template-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\calendar-template-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\client-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\totals-template-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\data-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\document-api.ts" />
+	  <None Remove="ClientApp\src\webapi\apis\data-dictionary-api.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\configuration.js" />
+	  <None Remove="ClientApp\src\webapi\dist\index.js" />
+	  <None Remove="ClientApp\src\webapi\dist\configuration.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\base.js" />
+	  <None Remove="ClientApp\src\webapi\dist\base.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\index.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\user-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\client-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\totals-template-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\data-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\document-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\calendar-template-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\client-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\document-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\calendar-template-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\data-dictionary-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\theme-template-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\grand-total-template-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\grand-total-template-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\calendar-overlay-template-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\data-dictionary-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\theme-template-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\data-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\media-hierarchy-template-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\media-hierarchy-template-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\flowchart-template-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\calendar-overlay-template-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\header-template-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\flowchart-template-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\user-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\header-template-api.js" />
+	  <None Remove="ClientApp\src\webapi\dist\apis\totals-template-api.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\store-flowchart-template-id-body.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-update-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-setting-alignment.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\data-dictionary-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-theme.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-row-style.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-create-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\data-dictionary-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\client-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-theme.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-definition.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-create-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-section-styling.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\client-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\color.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-theme.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-update-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-total-alignment.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\value-separator.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\user-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-create-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-section.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\client-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\user-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-row.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-definition.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-theme.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-total-styling.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-update-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\distinct-data-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-setting-alignment.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\exception-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-item.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-section.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-level.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\font.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-total.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-metric.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-create-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-update-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-details-row.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-update-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-level.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-level-setting.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\styling.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\styling.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row-merge.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-create-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row-type.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-update-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-definition.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-update-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-create-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-create-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-sub-level.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\exception-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-selection.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\client-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-sub-total.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-row.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-update-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-total.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-update-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-theme.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\data-dictionary-table-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row-merge.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-create-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-total-styling.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-theme.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\alignment.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-inflight-overlay.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-section-format.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-row-styling.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-create-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-total-alignment.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-level.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-details.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-sub-total.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row-type.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-definition.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-create-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-update-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-update-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\client-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-definition.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\alignment.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\font-weight.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-definition.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\user-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-details.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\index.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-sub-level.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-configuration.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-orientation.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-details-row.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-create-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\fill.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-update-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-create-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\client-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-update-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-create-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-configuration.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-update-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\user-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\color.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-setting-styling.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-type.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-selection.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-create-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\column-type.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-definition.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row-styling.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-theme.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-section-styling.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\distinct-data-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-row.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-data-details.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\font.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flight-range.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\column-source.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-date-format.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-level.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-definition.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-row.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-data-details.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\login-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flight-range.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-definition.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-data-row.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-update-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\image-type.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\value-separator.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-total.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-update-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\column-type.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\metric.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\store-flowchart-template-id-body.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row-styling.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\data-dictionary-column-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-column.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\image.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-sub-level-setting.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-definition.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\border.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-configuration.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-metric.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-logo.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-row-style.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-theme.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-definition.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-create-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-data-row.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-search-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-definition.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-definition.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-reporting-time-frame.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-theme.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-search-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\column-source.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-logo.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-data.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\image-type.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-data.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-row-styling.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\data-dictionary-column-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-template-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-template-info-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-info-list-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-theme.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\metric.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-level.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-template-create-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-total.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\index.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row-alignment.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-orientation.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\border.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-row-alignment.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\login-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-setting-styling.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\image.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-definition.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-template-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-setting.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\grand-total-definition.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-reporting-time-frame.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\fill.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-styling.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\font-weight.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-setting.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-theme.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\theme-template-details-dto.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-inflight-overlay.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-date-format.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\flowchart-data-level.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\data-dictionary-table-details-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-type.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-template-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-styling.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-column.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-template-info-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-item.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\header-template-info-list-dto.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-format.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-theme.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\totals-definition.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-configuration.js" />
+	  <None Remove="ClientApp\src\webapi\dist\models\media-hierarchy-format.d.ts" />
+	  <None Remove="ClientApp\src\webapi\dist\models\calendar-overlay-section-format.d.ts" />
+	  <None Remove="ClientApp\src\webapi\models\theme-template-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\image-type.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-template-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-sub-total.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-data.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-template-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-template-update-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-row-styling.ts" />
+	  <None Remove="ClientApp\src\webapi\models\image.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-configuration.ts" />
+	  <None Remove="ClientApp\src\webapi\models\border.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-sub-level-setting.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-logo.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-row-style.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-template-create-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-definition.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-theme.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-template-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-template-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-data-details.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-template-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-template-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-row.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-template-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\range-underline-style.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-date-format.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-template-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-sub-level.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-template-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-template-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\theme-template-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flight-range.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-template-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-data-row.ts" />
+	  <None Remove="ClientApp\src\webapi\models\login-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-setting-styling.ts" />
+	  <None Remove="ClientApp\src\webapi\models\vertical-alignment.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-data.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-template-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-reporting-time-frame.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-setting.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-inflight-overlay.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-data-level.ts" />
+	  <None Remove="ClientApp\src\webapi\models\data-dictionary-table-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-template-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-styling.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-column.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-template-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-item.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-template-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-configuration.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-definition.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-format.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-definition.ts" />
+	  <None Remove="ClientApp\src\webapi\models\column-source.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-template-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-theme.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-template-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-data.ts" />
+	  <None Remove="ClientApp\src\webapi\models\data-dictionary-column-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\metric.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-theme.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-row.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-data-total.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-orientation.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-row-alignment.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-template-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-template-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-setting-alignment.ts" />
+	  <None Remove="ClientApp\src\webapi\models\distinct-data-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\exception-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\border-style.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-level.ts" />
+	  <None Remove="ClientApp\src\webapi\models\font.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-data-metric.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-details-row.ts" />
+	  <None Remove="ClientApp\src\webapi\models\styling.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-template-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-row-merge.ts" />
+	  <None Remove="ClientApp\src\webapi\models\store-flowchart-template-id-body.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-theme.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-template-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\data-dictionary-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-theme.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-section-styling.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-template-create-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-definition.ts" />
+	  <None Remove="ClientApp\src\webapi\models\client-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-sub-total-alignment.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-template-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\value-separator.ts" />
+	  <None Remove="ClientApp\src\webapi\models\user-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-section.ts" />
+	  <None Remove="ClientApp\src\webapi\models\theme-definition.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-template-update-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-sub-total-styling.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-template-update-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-template-create-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\alignment.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-definition.ts" />
+	  <None Remove="ClientApp\src\webapi\models\client-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-template-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\font-weight.ts" />
+	  <None Remove="ClientApp\src\webapi\models\index.ts" />
+	  <None Remove="ClientApp\src\webapi\models\horizontal-alignment.ts" />
+	  <None Remove="ClientApp\src\webapi\models\user-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-details.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-definition.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-data-sub-level.ts" />
+	  <None Remove="ClientApp\src\webapi\models\fill.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-template-create-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-template-search-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-template-create-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-template-update-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\theme-template-info-list-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-template-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\color.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-template-update-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-type.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-definition.ts" />
+	  <None Remove="ClientApp\src\webapi\models\column-type.ts" />
+	  <None Remove="ClientApp\src\webapi\models\theme-template-update-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-template-create-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\grand-total-selection.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-template-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-data-sub-total.ts" />
+	  <None Remove="ClientApp\src\webapi\models\client-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-template-update-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-row.ts" />
+	  <None Remove="ClientApp\src\webapi\models\theme-template-info-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\totals-template-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-theme.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-template-update-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\theme-template-create-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\flowchart-template-details-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\border-line-style.ts" />
+	  <None Remove="ClientApp\src\webapi\models\media-hierarchy-template-create-dto.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-overlay-section-format.ts" />
+	  <None Remove="ClientApp\src\webapi\models\calendar-row-styling.ts" />
+	  <None Remove="ClientApp\src\webapi\models\header-row-type.ts" />
+	</ItemGroup>
+	<Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+		<!-- Ensure Node.js is installed -->
+		<Exec Command="node --version" ContinueOnError="true">
+			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+		</Exec>
+		<Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+		<Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+	</Target>
+
+	<Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+		<!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+		<!-- Include the newly-built files in the publish output -->
+		<ItemGroup>
+			<DistFiles Include="$(SpaRoot)build\**" />
+			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+				<RelativePath>wwwroot\%(RecursiveDir)%(FileName)%(Extension)</RelativePath>
+				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+				<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			</ResolvedFileToPublish>
+		</ItemGroup>
+	</Target>
+</Project>

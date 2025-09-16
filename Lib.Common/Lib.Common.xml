@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lib.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Lib.Common.Business.CorrelationIdGenerator">
+            <summary>
+            CorrelationIdGenerator
+            </summary>
+        </member>
+        <member name="P:Lib.Common.Business.CorrelationIdGenerator.CorrelationId">
+            <summary>
+            Gets or sets the correlation identifier.
+            </summary>
+            <value>The correlation identifier.</value>
+        </member>
+        <member name="T:Lib.Common.Business.Interfaces.ICorrelationIdGenerator">
+            <summary>
+            ICorrelationIdGenerator
+            </summary>
+        </member>
+        <member name="P:Lib.Common.Business.Interfaces.ICorrelationIdGenerator.CorrelationId">
+            <summary>
+            Gets or sets the correlation identifier.
+            </summary>
+            <value>The correlation identifier.</value>
+        </member>
+        <member name="T:Lib.Common.Business.Interfaces.ILog`1">
+            <summary>
+            ILog
+            </summary>
+        </member>
+        <member name="M:Lib.Common.Business.Interfaces.ILog`1.Add(Microsoft.Extensions.Logging.LogLevel,System.String,System.Exception)">
+            <summary>
+            Adds the specified log level.
+            </summary>
+            <param name="logLevel">The log level.</param>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="T:Lib.Common.Business.Json">
+            <summary>
+            JsonConverter
+            </summary>
+        </member>
+        <member name="M:Lib.Common.Business.Json.Deserialize``1(System.String)">
+            <summary>
+            Deserializes the specified json.
+            </summary>
+            <param name="json">The json.</param>
+        </member>
+        <member name="M:Lib.Common.Business.Json.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserializes the specified stream.
+            </summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="M:Lib.Common.Business.Json.Serialize(System.Object)">
+            <summary>
+            Serializes the specified object.
+            </summary>
+            <param name="object">The object.</param>
+        </member>
+        <member name="M:Lib.Common.Business.Json.Serialize(System.Object,System.IO.Stream)">
+            <summary>
+            Serializes the specified object.
+            </summary>
+            <param name="object">The object.</param>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="T:Lib.Common.Business.JsonConfiguration">
+            <summary>
+            JsonConfiguration
+            </summary>
+        </member>
+        <member name="M:Lib.Common.Business.JsonConfiguration.Configure(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Configures the specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="T:Lib.Common.Business.Log`1">
+            <summary>
+            Log
+            </summary>
+        </member>
+        <member name="M:Lib.Common.Business.Log`1.#ctor(Microsoft.Extensions.Logging.ILogger{`0},Lib.Common.Business.Interfaces.ICorrelationIdGenerator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lib.Common.Business.Log`1" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="generator">The generator.</param>
+        </member>
+        <member name="M:Lib.Common.Business.Log`1.Add(Microsoft.Extensions.Logging.LogLevel,System.String,System.Exception)">
+            <summary>
+            Adds the specified log level.
+            </summary>
+            <param name="logLevel">The log level.</param>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="T:Lib.Common.Business.TextJsonConfiguration">
+            <summary>
+            TextJsonConfiguration
+            </summary>
+        </member>
+        <member name="M:Lib.Common.Business.TextJsonConfiguration.Configure(System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Configures the specified settings.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="T:Lib.Common.Models.ConnectionStrings">
+            <summary>
+            ConnectionStrings
+            </summary>
+        </member>
+        <member name="P:Lib.Common.Models.ConnectionStrings.AzuriteBlob">
+            <summary>
+            Gets or sets the azurite BLOB.
+            </summary>
+            <value>The azurite BLOB.</value>
+        </member>
+        <member name="P:Lib.Common.Models.ConnectionStrings.PortalDb">
+            <summary>
+            Gets or sets the portal database.
+            </summary>
+            <value>The portal database.</value>
+        </member>
+        <member name="P:Lib.Common.Models.ConnectionStrings.Redis">
+            <summary>
+            Gets or sets the redis.
+            </summary>
+            <value>The redis.</value>
+        </member>
+        <member name="P:Lib.Common.Models.ConnectionStrings.AuroraDB">
+            <summary>
+            Gets or sets the aurora database.
+            </summary>
+            <value>The aurora database.</value>
+        </member>
+    </members>
+</doc>
