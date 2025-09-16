@@ -1,0 +1,774 @@
+{
+    "id": "1001",
+    "component": "calendar",
+    "description": "Broadcast - Current Year - All Rows - Default Order - No Style/Styling",
+    "outcome": "unknown",
+    "calendarDefinition": {
+        "Configuration": {
+            "CustomStartDate": "2023-01-01",
+            "CustomEndDate": "2023-12-31",
+            "Type": "Broadcast",
+            "Rows": [
+                {
+                    "ColumnName": "rollframe",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 0,
+                    "id": "calendar_rows1"
+                },
+                {
+                    "ColumnName": "week_text",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 1,
+                    "id": "calendar_rows4"
+                },
+                {
+                    "ColumnName": "month_text",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 2,
+                    "id": "calendar_rows10"
+                },
+                {
+                    "ColumnName": "quarter_text",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 3,
+                    "id": "calendar_rows19"
+                },
+                {
+                    "ColumnName": "year_text",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 4,
+                    "id": "calendar_rows31"
+                },
+                {
+                    "ColumnName": "period1_text",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 5,
+                    "id": "calendar_rows46"
+                },
+                {
+                    "ColumnName": "period2_text",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 6,
+                    "id": "calendar_rows64"
+                },
+                {
+                    "ColumnName": "period3_text",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 7,
+                    "id": "calendar_rows85"
+                },
+                {
+                    "ColumnName": "period6_text",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "Order": 8,
+                    "id": "calendar_rows109"
+                }
+            ],
+            "IsReportingTimeFrame": true,
+            "ReportingTimeFrame": "CurrentYear"
+        },
+        "Styling": {
+            "Border": {
+                "Bottom": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Left": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Right": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Top": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                }
+            },
+            "Fill": {},
+            "Font": {
+                "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                "Background": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "ColorAlternate": {
+                    "Alpha": 1,
+                    "Blue": 0,
+                    "Green": 0,
+                    "Red": 0
+                },
+                "BackgroundAlternate": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "Family": "Calibri",
+                "Size": 10,
+                "Weight": "Regular"
+            },
+            "Alignment": { "Horizontal": "Center", "Vertical": "Center" }
+        }
+    }
+}

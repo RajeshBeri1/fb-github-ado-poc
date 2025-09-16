@@ -1,0 +1,133 @@
+{
+    "id": "2005",
+    "component": "calendar",
+    "description": "Overlay: one row spanning Q1 and Q3",
+    "outcome": "unknown",
+    "calendarDefinition": {
+        "Configuration": {
+            "CustomEndDate": "2022-12-31T00:00:00Z",
+            "CustomStartDate": "2022-01-01T00:00:00Z",
+            "IsReportingTimeFrame": false,
+            "ReportingTimeFrame": "CurrentYear",
+            "Rows": [
+                {
+                    "ColumnName": "year_text",
+                    "Order": 0,
+                    "Style": "MonthMMM",
+                    "Styling": {
+                        "BackgroundColor": {
+                            "Alpha": 0,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        }
+                    }
+                },
+                {
+                    "ColumnName": "quarter_text",
+                    "Order": 1,
+                    "Style": "MonthMMM",
+                    "Styling": {
+                        "BackgroundColor": {
+                            "Alpha": 0,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        }
+                    }
+                },
+                {
+                    "ColumnName": "month_text",
+                    "Order": 2,
+                    "Style": "MonthMMM",
+                    "Styling": {
+                        "BackgroundColor": {
+                            "Alpha": 0,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        }
+                    }
+                }
+            ],
+            "Type": "Broadcast"
+        },
+        "Styling": {
+            "Alignment": {},
+            "Border": {
+                "Bottom": {
+                    "Color": { "Alpha": 1, "Blue": 1, "Green": 1, "Red": 1 },
+                    "Style": "Continuous"
+                },
+                "Left": {
+                    "Color": { "Alpha": 1, "Blue": 1, "Green": 1, "Red": 1 },
+                    "Style": "Continuous"
+                },
+                "Right": {
+                    "Color": { "Alpha": 1, "Blue": 1, "Green": 1, "Red": 1 },
+                    "Style": "Continuous"
+                },
+                "Top": {
+                    "Color": { "Alpha": 1, "Blue": 1, "Green": 1, "Red": 1 },
+                    "Style": "Continuous"
+                }
+            },
+            "Fill": {},
+            "Font": {
+                "Background": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "BackgroundAlternate": {
+                    "Alpha": 1,
+                    "Blue": 0,
+                    "Green": 0,
+                    "Red": 0
+                },
+                "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                "ColorAlternate": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "Family": "Calibri",
+                "Size": 10,
+                "Weight": "Regular"
+            }
+        }
+    },
+    "calendarOverlayDefinition": {
+        "OverlaySections": [
+            {
+                "Order": 0,
+                "Rows": [
+                    {
+                        "EndDate": "2022-03-31T00:00:00Z",
+                        "Order": 0,
+                        "StartDate": "2022-01-01T00:00:00Z",
+                        "Text": "q1"
+                    },
+                    {
+                        "EndDate": "2022-09-30T00:00:00Z",
+                        "Order": 1,
+                        "StartDate": "2022-07-01T00:00:00Z",
+                        "Text": "q3"
+                    }
+                ],
+                "Styling": {
+                    "BackgroundColor": {
+                        "Alpha": 0,
+                        "Blue": 0,
+                        "Green": 0,
+                        "Red": 0
+                    },
+                    "Format": "Bar"
+                },
+                "Text": "q 1 and 3"
+            }
+        ]
+    }
+}

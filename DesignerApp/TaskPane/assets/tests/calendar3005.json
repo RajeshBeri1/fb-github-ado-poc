@@ -1,0 +1,8 @@
+{
+   "id":"3005",
+   "component":"calendar",
+   "description":"Standard - Mid 2022 to Mid 2023 - Rows: YQMW",
+   "outcome":"unknown",
+   "calendarDefinition":
+   {"Configuration":{"CustomEndDate":"2023-06-30T00:00:00Z","CustomStartDate":"2022-07-01T00:00:00Z","IsReportingTimeFrame":false,"ReportingTimeFrame":"CurrentYear","Rows":[{"Order":0,"StandardCalenderRowType":"Year","Style":"MonthMMM","Styling":{"BackgroundColor":{"Alpha":0,"Blue":0,"Green":0,"Red":0}}},{"Order":1,"StandardCalenderRowType":"Quarter","Style":"MonthMMM","Styling":{"BackgroundColor":{"Alpha":0,"Blue":0,"Green":0,"Red":0}}},{"Order":2,"StandardCalenderRowType":"Month","Style":"MonthMMM","Styling":{"BackgroundColor":{"Alpha":0,"Blue":0,"Green":0,"Red":0}}},{"Order":3,"StandardCalenderRowType":"Week","Style":"MonthMMM","Styling":{"BackgroundColor":{"Alpha":0,"Blue":0,"Green":0,"Red":0}}}],"Type":"Standard"},"Styling":{"Alignment":{},"Border":{"Bottom":{"Color":{"Alpha":1,"Blue":1,"Green":1,"Red":1},"Style":"Continuous"},"Left":{"Color":{"Alpha":1,"Blue":1,"Green":1,"Red":1},"Style":"Continuous"},"Right":{"Color":{"Alpha":1,"Blue":1,"Green":1,"Red":1},"Style":"Continuous"},"Top":{"Color":{"Alpha":1,"Blue":1,"Green":1,"Red":1},"Style":"Continuous"}},"Fill":{},"Font":{"Background":{"Alpha":1,"Blue":255,"Green":255,"Red":255},"BackgroundAlternate":{"Alpha":1,"Blue":0,"Green":0,"Red":0},"Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0},"ColorAlternate":{"Alpha":1,"Blue":255,"Green":255,"Red":255},"Family":"Calibri","Size":10,"Weight":"Regular"}}}
+}

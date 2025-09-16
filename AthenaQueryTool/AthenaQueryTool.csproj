@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<CodeAnalysisRuleSet>..\T4M Code Rules.ruleset</CodeAnalysisRuleSet>
+		<DocumentationFile>AthenaQueryTool.xml</DocumentationFile>
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Lamar" Version="15.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.9" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.9" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.9" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.9" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.9" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Lib.SampleData\Lib.SampleData.csproj" />
+		<ProjectReference Include="..\Lib.WebAPI\Lib.WebAPI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

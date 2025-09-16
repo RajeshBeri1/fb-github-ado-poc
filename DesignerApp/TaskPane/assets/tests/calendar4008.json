@@ -1,0 +1,10 @@
+{
+   "id":"4008",
+   "component":"calendar",
+   "description":"Overlay: Feb 2025 - Calendar Feb 2025",
+   "outcome":"unknown",
+   "calendarDefinition":
+   {"Configuration":{"CustomStartDate":"2025-02-01","CustomEndDate":"2025-02-28","Type":"Standard","Rows":[{"Order":0,"StandardCalenderRowType":"Year","Style":"MonthMMM","Styling":{"BackgroundColor":{"Alpha":0,"Blue":0,"Green":0,"Red":0}},"id":"Calendar_Rows2913"},{"Order":1,"StandardCalenderRowType":"Month","Style":"MonthMMM","Styling":{"BackgroundColor":{"Alpha":0,"Blue":0,"Green":0,"Red":0}},"id":"Calendar_Rows2914"}],"IsReportingTimeFrame":false,"ReportingTimeFrame":"CurrentYear"},"Styling":{"Alignment":{},"Border":{"Top":{"Style":"Continuous","Color":{"Alpha":1,"Blue":1,"Green":1,"Red":1}},"Right":{"Style":"Continuous","Color":{"Alpha":1,"Blue":1,"Green":1,"Red":1}},"Bottom":{"Style":"Continuous","Color":{"Alpha":1,"Blue":1,"Green":1,"Red":1}},"Left":{"Style":"Continuous","Color":{"Alpha":1,"Blue":1,"Green":1,"Red":1}}},"Fill":{},"Font":{"Background":{"Alpha":1,"Blue":255,"Green":255,"Red":255},"Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0},"BackgroundAlternate":{"Alpha":1,"Blue":0,"Green":0,"Red":0},"ColorAlternate":{"Alpha":1,"Blue":255,"Green":255,"Red":255},"Family":"Calibri","Size":10,"Weight":"Regular"}}}
+   ,"calendarOverlayDefinition":
+{"OverlaySections":[{"Order":0,"Rows":[{"EndDate":"2025-02-28T00:00:00Z","Order":0,"StartDate":"2025-02-01T00:00:00Z","Text":"row1"}],"Styling":{"BackgroundColor":{"Alpha":0,"Blue":0,"Green":0,"Red":0},"Format":"Bar"},"Text":"sec1"}]}
+}

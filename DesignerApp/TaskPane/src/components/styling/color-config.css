@@ -1,0 +1,15 @@
+input[type="color"] {
+    background-color: rgb(242, 245, 250);
+    appearance: none;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    box-shadow: none;
+    display: inline-flex;
+    font-size: var(--size-4);
+    justify-content: flex-start;
+    line-height: 1.5;
+    min-height: 35px;
+    margin-top: 0.43em !important;
+    max-width: 100px !important;
+}

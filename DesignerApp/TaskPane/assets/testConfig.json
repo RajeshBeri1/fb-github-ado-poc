@@ -1,0 +1,67 @@
+{
+    "testsDirectory": "tests",
+
+    "tests": [
+        "header1001",
+        "header1002",
+        "header2001",
+        "header2002",
+
+        "calendar1001",
+        "calendar1002",
+        "calendar1003",
+        "calendar1004",
+        "calendar1005",
+        "calendar1006",
+        "calendar1101",
+        "calendar2001",
+        "calendar2002",
+        "calendar2003",
+        "calendar2004",
+        "calendar2005",
+        "calendar2006",
+        "calendar2007",
+
+        "calendar3001",
+        "calendar3002",
+        "calendar3003",
+        "calendar3004",
+        "calendar3005",
+        "calendar3006",
+        "calendar3007",
+        "calendar3008",
+        "calendar3101",
+
+        "calendar4001",
+        "calendar4002",
+        "calendar4003",
+        "calendar4004",
+        "calendar4005",
+        "calendar4006",
+        "calendar4007",
+        "calendar4008",
+
+        "calendar9000",
+        "calendar9001",
+        "calendar9002",
+        "calendar9003",
+        "calendar9004",
+        "calendar9005",
+        "calendar9006",
+        "calendar9007",
+
+        "mediaHierarchy1001",
+        "mediaHierarchy2002",
+
+        "footer1001",
+        "footer1002",
+        "footer1003",
+        "footer1004",
+        "footer1005",
+        "footer1006",
+
+        "fullReport1001",
+        "fullReport1002",
+        "fullReport1004"
+    ]
+}

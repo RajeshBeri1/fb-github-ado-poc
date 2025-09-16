@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DesignerApp</name>
+    </assembly>
+    <members>
+        <member name="T:DesignerApp.Pages.ErrorModel">
+            <summary>
+            ErrorModel
+            </summary>
+        </member>
+        <member name="P:DesignerApp.Pages.ErrorModel.RequestId">
+            <summary>
+            Gets or sets the request identifier.
+            </summary>
+            <value>The request identifier.</value>
+        </member>
+        <member name="P:DesignerApp.Pages.ErrorModel.ShowRequestId">
+            <summary>
+            Gets a value indicating whether [show request identifier].
+            </summary>
+            <value>
+            <c>true</c> if [show request identifier]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:DesignerApp.Pages.ErrorModel.#ctor(Microsoft.Extensions.Logging.ILogger{DesignerApp.Pages.ErrorModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DesignerApp.Pages.ErrorModel" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:DesignerApp.Pages.ErrorModel.OnGet">
+            <summary>
+            Called when [get].
+            </summary>
+        </member>
+    </members>
+</doc>

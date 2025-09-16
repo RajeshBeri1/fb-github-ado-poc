@@ -1,0 +1,527 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lib.Annalect</name>
+    </assembly>
+    <members>
+        <member name="T:Lib.Annalect.Business.AnnalectApiClient">
+            <summary>
+            AnnalectApiClient
+            </summary>
+        </member>
+        <member name="F:Lib.Annalect.Business.AnnalectApiClient.ClientName">
+            <summary>
+            The client name
+            </summary>
+        </member>
+        <member name="M:Lib.Annalect.Business.AnnalectApiClient.#ctor(System.Net.Http.IHttpClientFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lib.Annalect.Business.AnnalectApiClient" /> class.
+            </summary>
+            <param name="httpClientFactory">The HTTP client factory.</param>
+        </member>
+        <member name="M:Lib.Annalect.Business.AnnalectApiClient.GetUserProfileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the user profile asynchronous.
+            </summary>
+            <param name="anSid">An sid.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Lib.Annalect.Business.AnnalectApiClient.ValidateSessionAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Validates the session asynchronous.
+            </summary>
+            <param name="anSid">An sid.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Lib.Annalect.Business.AnnalectApiClient.ExtendSessionAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Extend the session asynchronous.
+            </summary>
+            <param name="anSid">An sid.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Lib.Annalect.Business.AnnalectApiClient.GetClientDetailsAsync(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get Omni Client Details asynchronous.
+            </summary>
+            <param name="id">An omniClientId.</param>
+            <param name="anSid">An sid.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Lib.Annalect.Business.AnnalectApiClient.GetOtherClientListAsync(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get Omni Client List asynchronous.
+            </summary>
+            <param name="id">An omniClientId.</param>
+            <param name="anSid">An sid.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:Lib.Annalect.Models.Client">
+            <summary>
+            Client
+            </summary>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.AccessedWhen">
+            <summary>
+            Gets or sets the accessed when.
+            </summary>
+            <value>The accessed when.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>The client identifier.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.CreatedBy">
+            <summary>
+            Gets or sets the created by.
+            </summary>
+            <value>The created by.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.GuidPersonCreated">
+            <summary>
+            Gets or sets the unique identifier person created.
+            </summary>
+            <value>The unique identifier person created.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.IsHideLogo">
+            <summary>
+            Gets or sets a value indicating whether this instance is hide logo.
+            </summary>
+            <value>
+            <c>true</c> if this instance is hide logo; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.IsParent">
+            <summary>
+            Gets or sets a value indicating whether this instance is parent.
+            </summary>
+            <value><c>true</c> if this instance is parent; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.OmniNavigationKey">
+            <summary>
+            Gets or sets the omni navigation key.
+            </summary>
+            <value>The omni navigation key.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.OrgName">
+            <summary>
+            Gets or sets the name of the org.
+            </summary>
+            <value>The name of the org.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.S3UrlLogo">
+            <summary>
+            Gets or sets the s3 URL logo.
+            </summary>
+            <value>The s3 URL logo.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.StartWhen">
+            <summary>
+            Gets or sets the start when.
+            </summary>
+            <value>The start when.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>The status.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.UrlLogo">
+            <summary>
+            Gets or sets the URL logo.
+            </summary>
+            <value>The URL logo.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Client.UrlLogoHeader">
+            <summary>
+            Gets or sets the URL logo header.
+            </summary>
+            <value>The URL logo header.</value>
+        </member>
+        <member name="T:Lib.Annalect.Models.ClientDetailsList">
+            <summary>
+            ClientDetailsList
+            </summary>
+        </member>
+        <member name="P:Lib.Annalect.Models.ClientDetailsList.ClientId">
+            <summary>
+            Gets or sets the ClientId.
+            </summary>
+            <value>
+            The ClientId.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.ClientDetailsList.Name">
+            <summary>
+            Gets or sets the Name.
+            </summary>
+            <value>
+            The Name.
+            </value>
+        </member>
+        <member name="T:Lib.Annalect.Models.Project">
+            <summary>
+            Project
+            </summary>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>The client identifier.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.CreatedBy">
+            <summary>
+            Gets or sets the created by.
+            </summary>
+            <value>The created by.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.DataPeriodCurrent">
+            <summary>
+            Gets or sets the data period current.
+            </summary>
+            <value>The data period current.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ExternalIdentifier">
+            <summary>
+            Gets or sets the external identifier.
+            </summary>
+            <value>The external identifier.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.IsAutomatedPdfEnabled">
+            <summary>
+            Gets or sets a value indicating whether this instance is automated PDF
+            enabled.
+            </summary>
+            <value>
+            <c>true</c> if this instance is automated PDF enabled; otherwise,
+            <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.IsOmniForceReload">
+            <summary>
+            Gets or sets a value indicating whether this instance is omni force reload.
+            </summary>
+            <value>
+            <c>true</c> if this instance is omni force reload; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.IsOmniFullRedirect">
+            <summary>
+            Gets or sets a value indicating whether [i is omni full redirect].
+            </summary>
+            <value>
+            <c>true</c> if [i is omni full redirect]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.IsOmniMultiClient">
+            <summary>
+            Gets or sets a value indicating whether this instance is omni multi client.
+            </summary>
+            <value>
+            <c>true</c> if this instance is omni multi client; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.IsOmniPopup">
+            <summary>
+            Gets or sets a value indicating whether this instance is omni popup.
+            </summary>
+            <value>
+            <c>true</c> if this instance is omni popup; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.IsOmniPreferMinimizedHeader">
+            <summary>
+            Gets or sets a value indicating whether this instance is omni prefer minimized
+            header.
+            </summary>
+            <value>
+            <c>true</c> if this instance is omni prefer minimized header; otherwise,
+            <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.IsOmniSyncIframeSrcAttr">
+            <summary>
+            Gets or sets a value indicating whether this instance is omni synchronize
+            iframe source attribute.
+            </summary>
+            <value>
+            <c>true</c> if this instance is omni synchronize iframe source attribute;
+            otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.LargeHero">
+            <summary>
+            Gets or sets the large hero.
+            </summary>
+            <value>The large hero.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.MediumHero">
+            <summary>
+            Gets or sets the medium hero.
+            </summary>
+            <value>The medium hero.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.OmniGroupKeyDefault">
+            <summary>
+            Gets or sets the omni group key default.
+            </summary>
+            <value>The omni group key default.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.OmniIframeHideTopPx">
+            <summary>
+            Gets or sets the omni iframe hide top px.
+            </summary>
+            <value>The omni iframe hide top px.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.OmniQuerystringParamExpr">
+            <summary>
+            Gets or sets the omni querystring parameter expr.
+            </summary>
+            <value>The omni querystring parameter expr.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.OrgName">
+            <summary>
+            Gets or sets the name of the org.
+            </summary>
+            <value>The name of the org.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.PersonIdCreated">
+            <summary>
+            Gets or sets the person identifier created.
+            </summary>
+            <value>The person identifier created.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ProductName">
+            <summary>
+            Gets or sets the name of the product.
+            </summary>
+            <value>The name of the product.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ProjectId">
+            <summary>
+            Gets or sets the project identifier.
+            </summary>
+            <value>The project identifier.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ProjectName">
+            <summary>
+            Gets or sets the name of the project.
+            </summary>
+            <value>The name of the project.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ProjectStatus">
+            <summary>
+            Gets or sets the project status.
+            </summary>
+            <value>The project status.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ReleaseStatusId">
+            <summary>
+            Gets or sets the release status identifier.
+            </summary>
+            <value>The release status identifier.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ReleaseStatusKey">
+            <summary>
+            Gets or sets the release status key.
+            </summary>
+            <value>The release status key.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.ReleaseStatusName">
+            <summary>
+            Gets or sets the name of the release status.
+            </summary>
+            <value>The name of the release status.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.SmallHero">
+            <summary>
+            Gets or sets the small hero.
+            </summary>
+            <value>The small hero.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.StartWhen">
+            <summary>
+            Gets or sets the start when.
+            </summary>
+            <value>The start when.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.TypeKey">
+            <summary>
+            Gets or sets the type key.
+            </summary>
+            <value>The type key.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.UrlLogo">
+            <summary>
+            Gets or sets the URL logo.
+            </summary>
+            <value>The URL logo.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.UserRoles">
+            <summary>
+            Gets or sets the user roles.
+            </summary>
+            <value>The user roles.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.XLargeHero">
+            <summary>
+            Gets or sets the x large hero.
+            </summary>
+            <value>The x large hero.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Project.XSmallHero">
+            <summary>
+            Gets or sets the x small hero.
+            </summary>
+            <value>The x small hero.</value>
+        </member>
+        <member name="T:Lib.Annalect.Models.Role">
+            <summary>
+            Role
+            </summary>
+        </member>
+        <member name="P:Lib.Annalect.Models.Role.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+            <value>The key.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.Role.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:Lib.Annalect.Models.UserProfileResponse">
+            <summary>
+            UserProfileResponse
+            </summary>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.CanImpersonate">
+            <summary>
+            Gets or sets a value indicating whether this instance can impersonate.
+            </summary>
+            <value>
+            <c>true</c> if this instance can impersonate; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.Clients">
+            <summary>
+            Gets or sets the clients.
+            </summary>
+            <value>The clients.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.EMail">
+            <summary>
+            Gets or sets the e mail.
+            </summary>
+            <value>The e mail.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.Environment">
+            <summary>
+            Gets or sets the environment.
+            </summary>
+            <value>The environment.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.FullName">
+            <summary>
+            Gets or sets the full name.
+            </summary>
+            <value>The full name.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.IsRequireEulaAndDataPolicyPrompt">
+            <summary>
+            Gets or sets a value indicating whether this instance is require EULA and data
+            policy prompt.
+            </summary>
+            <value>
+            <c>true</c> if this instance is require EULA and data policy prompt;
+            otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.IsSA">
+            <summary>
+            Gets or sets a value indicating whether this instance is sa.
+            </summary>
+            <value><c>true</c> if this instance is sa; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.LogonName">
+            <summary>
+            Gets or sets the name of the logon.
+            </summary>
+            <value>The name of the logon.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.OrgName">
+            <summary>
+            Gets or sets the name of the org.
+            </summary>
+            <value>The name of the org.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.Projects">
+            <summary>
+            Gets or sets the projects.
+            </summary>
+            <value>The projects.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.Roles">
+            <summary>
+            Gets or sets the roles.
+            </summary>
+            <value>The roles.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.TermsIdCurrent">
+            <summary>
+            Gets or sets the terms identifier current.
+            </summary>
+            <value>The terms identifier current.</value>
+        </member>
+        <member name="P:Lib.Annalect.Models.UserProfileResponse.ThemeKey">
+            <summary>
+            Gets or sets the theme key.
+            </summary>
+            <value>The theme key.</value>
+        </member>
+        <member name="T:Lib.Annalect.Models.ValidateSessionResponse">
+            <summary>
+            ValidateSessionResponse
+            </summary>
+        </member>
+        <member name="P:Lib.Annalect.Models.ValidateSessionResponse.IsAuthorized">
+            <summary>
+            Gets or sets a value indicating whether this instance is authorized.
+            </summary>
+            <value>
+            <c>true</c> if this instance is authorized; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lib.Annalect.Models.ValidateSessionResponse.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+    </members>
+</doc>

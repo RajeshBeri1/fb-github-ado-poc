@@ -1,0 +1,2144 @@
+{
+    "id": "2003",
+    "component": "mediaHierarchy",
+    "description": "Brand - Ad Size | right- and grand-totals",
+    "outcome": "unknown",
+    "mediaHierarchyDefinition": {
+        "Levels": [
+            {
+                "Id": 1,
+                "ColumnName": "brand2",
+                "Order": 0,
+                "Settings": [
+                    {
+                        "Id": 1,
+                        "Enabled": true,
+                        "FlightRange": "FlightTotal",
+                        "InflightOverlayColumnName": null,
+                        "InflightOverlayTableId": null,
+                        "MetricColumnName": "totalnet",
+                        "MetricTableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                        "Name": "Black Label Fried Cheesecake",
+                        "Order": 0,
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        },
+                        "SubLevels": null,
+                        "SubTotals": null
+                    },
+                    {
+                        "Id": 2,
+                        "Enabled": true,
+                        "FlightRange": "FlightTotal",
+                        "InflightOverlayColumnName": null,
+                        "InflightOverlayTableId": null,
+                        "MetricColumnName": "totalnet",
+                        "MetricTableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                        "Name": "Coho Winery",
+                        "Order": 1,
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        },
+                        "SubLevels": null,
+                        "SubTotals": null
+                    },
+                    {
+                        "Id": 3,
+                        "Enabled": true,
+                        "FlightRange": "FlightTotal",
+                        "InflightOverlayColumnName": null,
+                        "InflightOverlayTableId": null,
+                        "MetricColumnName": "totalnet",
+                        "MetricTableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                        "Name": "Contoso",
+                        "Order": 2,
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        },
+                        "SubLevels": null,
+                        "SubTotals": null
+                    },
+                    {
+                        "Id": 4,
+                        "Enabled": true,
+                        "FlightRange": "FlightTotal",
+                        "InflightOverlayColumnName": null,
+                        "InflightOverlayTableId": null,
+                        "MetricColumnName": "totalnet",
+                        "MetricTableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                        "Name": "Frankie's Sherbet",
+                        "Order": 3,
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        },
+                        "SubLevels": null,
+                        "SubTotals": null
+                    },
+                    {
+                        "Id": 5,
+                        "Enabled": true,
+                        "FlightRange": "FlightTotal",
+                        "InflightOverlayColumnName": null,
+                        "InflightOverlayTableId": null,
+                        "MetricColumnName": "totalnet",
+                        "MetricTableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                        "Name": "Gelato",
+                        "Order": 4,
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        },
+                        "SubLevels": null,
+                        "SubTotals": null
+                    },
+                    {
+                        "Id": 6,
+                        "Enabled": true,
+                        "FlightRange": "FlightTotal",
+                        "InflightOverlayColumnName": null,
+                        "InflightOverlayTableId": null,
+                        "MetricColumnName": "totalnet",
+                        "MetricTableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                        "Name": "NorthWind",
+                        "Order": 5,
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        },
+                        "SubLevels": null,
+                        "SubTotals": null
+                    },
+                    {
+                        "Id": 7,
+                        "Enabled": true,
+                        "FlightRange": "FlightTotal",
+                        "InflightOverlayColumnName": null,
+                        "InflightOverlayTableId": null,
+                        "MetricColumnName": "totalnet",
+                        "MetricTableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                        "Name": "Sorbet",
+                        "Order": 6,
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        },
+                        "SubLevels": null,
+                        "SubTotals": null
+                    }
+                ],
+                "TableId": "6f2ce863-ece8-442c-b5fb-bd59075914a9",
+                "Styling": {
+                    "Border": {
+                        "Bottom": {
+                            "Style": "Continuous",
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        },
+                        "Left": {
+                            "Style": "Continuous",
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        },
+                        "Right": {
+                            "Style": "Continuous",
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        },
+                        "Top": {
+                            "Style": "Continuous",
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    },
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    }
+                }
+            },
+            {
+                "Id": 2,
+                "ColumnName": "adsizemix",
+                "Order": 1,
+                "Settings": [
+                    {
+                        "Id": 1,
+                        "Enabled": true,
+                        "FlightRange": "FlightTotal",
+                        "InflightOverlayColumnName": null,
+                        "InflightOverlayTableId": null,
+                        "MetricColumnName": "totalnet",
+                        "MetricTableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                        "Name": "15\"",
+                        "Order": 0,
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        },
+                        "SubLevels": null,
+                        "SubTotals": null
+                    }
+                ],
+                "TableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                "Styling": {
+                    "Border": {
+                        "Bottom": {
+                            "Style": "Continuous",
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        },
+                        "Left": {
+                            "Style": "Continuous",
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        },
+                        "Right": {
+                            "Style": "Continuous",
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        },
+                        "Top": {
+                            "Style": "Continuous",
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    },
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    }
+                }
+            }
+        ],
+        "Styling": {
+            "Border": {
+                "Bottom": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Left": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Right": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Top": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                }
+            },
+            "Fill": {},
+            "Font": {
+                "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                "Background": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "ColorAlternate": {
+                    "Alpha": 1,
+                    "Blue": 0,
+                    "Green": 0,
+                    "Red": 0
+                },
+                "BackgroundAlternate": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "Family": "Calibri",
+                "Size": 10,
+                "Weight": "Regular"
+            },
+            "Alignment": { "Horizontal": "Center", "Vertical": "Center" }
+        }
+    },
+    "totalsDefinition": {
+        "Columns": [
+            {
+                "ColumnName": "asbof",
+                "Name": "ASBOF",
+                "Order": 0,
+                "TableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                "Styling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "HeaderStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "SumStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                }
+            },
+            {
+                "ColumnName": "actualnetmedia",
+                "Name": "Actual Net",
+                "Order": 1,
+                "TableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                "Styling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "HeaderStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "SumStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                }
+            },
+            {
+                "ColumnName": "adserving",
+                "Name": "Ad Serving",
+                "Order": 2,
+                "TableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                "Styling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "HeaderStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "SumStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                }
+            },
+            {
+                "ColumnName": "addedvalue",
+                "Name": "Added Value",
+                "Order": 3,
+                "TableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                "Styling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "HeaderStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "SumStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                }
+            }
+        ]
+    },
+    "grandTotalsDefinition": {
+        "Selections": [
+            {
+                "ColumnName": "adverificationcost",
+                "FlightRange": "Monthly",
+                "LeftMenuStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "Order": 0,
+                "Styling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 142,
+                            "Red": 20
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "TableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea"
+            },
+            {
+                "ColumnName": "asbof",
+                "FlightRange": "Monthly",
+                "LeftMenuStyling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "Order": 1,
+                "Styling": {
+                    "Alignment": {
+                        "Horizontal": "Center",
+                        "Vertical": "Center"
+                    },
+                    "Border": {
+                        "Bottom": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Left": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Right": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        },
+                        "Top": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Style": "Continuous"
+                        }
+                    },
+                    "Fill": {},
+                    "Font": {
+                        "Background": {
+                            "Alpha": 1,
+                            "Blue": 245,
+                            "Green": 241,
+                            "Red": 0
+                        },
+                        "BackgroundAlternate": {
+                            "Alpha": 1,
+                            "Blue": 255,
+                            "Green": 255,
+                            "Red": 255
+                        },
+                        "Color": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "ColorAlternate": {
+                            "Alpha": 1,
+                            "Blue": 0,
+                            "Green": 0,
+                            "Red": 0
+                        },
+                        "Family": "Calibri",
+                        "Size": 10,
+                        "Weight": "Regular"
+                    }
+                },
+                "TableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea"
+            }
+        ]
+    }
+}

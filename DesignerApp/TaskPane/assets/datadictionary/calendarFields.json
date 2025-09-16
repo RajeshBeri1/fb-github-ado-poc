@@ -1,0 +1,16 @@
+{
+  "broadcastFields": [
+    "month_text",
+    "quarter_text",
+    "week_text",
+    "year_text"
+  ],
+  "customClientFields": [
+    "clientmonth",
+    "clientquarter",
+    "clientyear",
+    "weekdaydate",
+    "cc_week_text",
+    "cc_week_number"
+  ]
+}

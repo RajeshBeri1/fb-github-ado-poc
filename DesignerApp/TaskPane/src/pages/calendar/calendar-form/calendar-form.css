@@ -1,0 +1,12 @@
+.input.select {
+    appearance: auto !important;
+}
+.p-relative{
+    position: relative;
+}
+
+.p-absolute{
+    position: absolute;
+    bottom:20px;
+    right: 50px;
+}

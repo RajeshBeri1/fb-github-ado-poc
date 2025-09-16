@@ -1,0 +1,12 @@
+omni-tile {
+    margin-bottom: 1rem;
+}
+
+omni-tile.item .title {
+    color: var(--color-electric-blue) !important
+}
+
+.item-wrapper {
+    height: calc(100vh - 200px) !important;
+    overflow: auto;
+}

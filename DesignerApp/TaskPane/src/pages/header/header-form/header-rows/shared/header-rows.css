@@ -1,0 +1,21 @@
+.isDragging {
+    top: auto !important;
+    left: auto !important;
+}
+
+.smallPadding {
+    padding: 0.6rem 1rem !important;
+}
+
+.smallPadding.actions {
+    padding: 3rem 0.6rem 1rem !important;
+}
+
+.restrictedHeight {
+    max-height: 125px;
+}
+
+.restrictedWidth {
+    max-width: 95px !important;
+    overflow: hidden;
+}

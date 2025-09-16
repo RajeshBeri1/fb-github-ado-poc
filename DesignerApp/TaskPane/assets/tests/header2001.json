@@ -1,0 +1,320 @@
+{
+    "id": "2001",
+    "component": "header",
+    "description": "3 Rows. Text and Date. Detail row: Brand01 (campaign)",
+    "outcome": "unknown",
+    "headerDefinition": {
+        "Configuration": {
+            "Rows": [
+                {
+                    "ColumnName": null,
+                    "Date": "2023-01-03T13:21:32.528Z",
+                    "DateFormat": null,
+                    "Text": "this header even has a detail row",
+                    "Type": "Text",
+                    "Order": 0,
+                    "TableId": null,
+                    "ValueSeparator": "Space",
+                    "id": "Header_Rows697",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "CampaignId": null,
+                    "MediaBriefId": null
+                },
+                {
+                    "ColumnName": null,
+                    "Date": "2023-01-03T13:21:34.088Z",
+                    "DateFormat": "MMDDYYYY",
+                    "Text": "",
+                    "Type": "Date",
+                    "Order": 1,
+                    "TableId": null,
+                    "ValueSeparator": "Space",
+                    "id": "Header_Rows700",
+                    "Styling": {
+                        "Border": {
+                            "Bottom": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Left": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Right": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            },
+                            "Top": {
+                                "Style": "Continuous",
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                }
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        },
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        }
+                    },
+                    "CampaignId": null,
+                    "MediaBriefId": null
+                }
+            ],
+            "Logos": [],
+            "Details": {
+                "Rows": [
+                    {
+                        "CampaignId": "22000015",
+                        "ColumnName": "brand1",
+                        "Order": 0,
+                        "TableId": "6f2ce863-ece8-442c-b5fb-bd59075914a9",
+                        "Text": "Brand01",
+                        "ValueSeparator": "Space",
+                        "id": "Detail_Rows916",
+                        "Styling": {
+                            "Border": {
+                                "Bottom": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Left": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Right": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                },
+                                "Top": {
+                                    "Style": "Continuous",
+                                    "Color": {
+                                        "Alpha": 1,
+                                        "Blue": 0,
+                                        "Green": 0,
+                                        "Red": 0
+                                    }
+                                }
+                            },
+                            "Fill": {},
+                            "Font": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Background": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "ColorAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "BackgroundAlternate": {
+                                    "Alpha": 1,
+                                    "Blue": 255,
+                                    "Green": 255,
+                                    "Red": 255
+                                },
+                                "Family": "Calibri",
+                                "Size": 10,
+                                "Weight": "Regular"
+                            },
+                            "Alignment": {
+                                "Horizontal": "Center",
+                                "Vertical": "Center"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "Styling": {
+            "Border": {
+                "Bottom": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Left": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Right": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                },
+                "Top": {
+                    "Style": "Continuous",
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 }
+                }
+            },
+            "Fill": {},
+            "Font": {
+                "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                "Background": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "ColorAlternate": {
+                    "Alpha": 1,
+                    "Blue": 0,
+                    "Green": 0,
+                    "Red": 0
+                },
+                "BackgroundAlternate": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "Family": "Calibri",
+                "Size": 10,
+                "Weight": "Regular"
+            },
+            "Alignment": { "Horizontal": "Center", "Vertical": "Center" }
+        }
+    }
+}

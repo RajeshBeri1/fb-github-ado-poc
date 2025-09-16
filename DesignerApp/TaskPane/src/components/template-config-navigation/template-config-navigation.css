@@ -1,0 +1,21 @@
+﻿.omni .toolbar-select {
+    border: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    padding: 0px !important;
+    color: var(--core-color-core-dark-100, #3B3E3F);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.043px;
+   width:100%;
+   text-overflow:ellipsis;
+   white-space:nowrap;
+}
+.w-125px{
+    width:125px;
+}
+omni-toolbar::part(toolbar) {
+    overflow: unset !important
+}

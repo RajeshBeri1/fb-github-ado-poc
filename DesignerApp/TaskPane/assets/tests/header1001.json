@@ -1,0 +1,308 @@
+{
+    "id": "1001",
+    "component": "header",
+    "description": "3 Rows. One of each kind. No Details",
+    "outcome": "unknown",
+    "headerDefinition": {
+        "Configuration": {
+            "ColumnMargin": 0,
+            "Logos": [],
+            "RowMargin": 0,
+            "RowMerge": "MergeAndCenter",
+            "Rows": [
+                {
+                    "Date": "2023-01-25T00:00:00Z",
+                    "Order": 0,
+                    "Styling": {
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        },
+                        "Border": {
+                            "Bottom": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Left": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Right": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Top": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        }
+                    },
+                    "Text": "header text",
+                    "Type": "Text",
+                    "ValueSeparator": "Space"
+                },
+                {
+                    "Date": "2023-01-25T00:00:00Z",
+                    "DateFormat": "MMDDYYYY",
+                    "Order": 1,
+                    "Styling": {
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        },
+                        "Border": {
+                            "Bottom": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Left": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Right": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Top": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        }
+                    },
+                    "Text": "",
+                    "Type": "Date",
+                    "ValueSeparator": "Space"
+                },
+                {
+                    "ColumnName": "asbof",
+                    "Date": "2023-01-25T00:00:00Z",
+                    "Order": 2,
+                    "Styling": {
+                        "Alignment": {
+                            "Horizontal": "Center",
+                            "Vertical": "Center"
+                        },
+                        "Border": {
+                            "Bottom": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Left": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Right": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            },
+                            "Top": {
+                                "Color": {
+                                    "Alpha": 1,
+                                    "Blue": 0,
+                                    "Green": 0,
+                                    "Red": 0
+                                },
+                                "Style": "Continuous"
+                            }
+                        },
+                        "Fill": {},
+                        "Font": {
+                            "Background": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "BackgroundAlternate": {
+                                "Alpha": 1,
+                                "Blue": 255,
+                                "Green": 255,
+                                "Red": 255
+                            },
+                            "Color": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "ColorAlternate": {
+                                "Alpha": 1,
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            },
+                            "Family": "Calibri",
+                            "Size": 10,
+                            "Weight": "Regular"
+                        }
+                    },
+                    "TableId": "f0867476-5d91-4fbf-8ebf-c5308309f4ea",
+                    "Text": "",
+                    "Type": "Value",
+                    "ValueSeparator": "Space"
+                }
+            ]
+        },
+        "Styling": {
+            "Alignment": { "Horizontal": "Center", "Vertical": "Center" },
+            "Border": {
+                "Bottom": {
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                    "Style": "Continuous"
+                },
+                "Left": {
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                    "Style": "Continuous"
+                },
+                "Right": {
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                    "Style": "Continuous"
+                },
+                "Top": {
+                    "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                    "Style": "Continuous"
+                }
+            },
+            "Fill": {},
+            "Font": {
+                "Background": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "BackgroundAlternate": {
+                    "Alpha": 1,
+                    "Blue": 255,
+                    "Green": 255,
+                    "Red": 255
+                },
+                "Color": { "Alpha": 1, "Blue": 0, "Green": 0, "Red": 0 },
+                "ColorAlternate": {
+                    "Alpha": 1,
+                    "Blue": 0,
+                    "Green": 0,
+                    "Red": 0
+                },
+                "Family": "Calibri",
+                "Size": 10,
+                "Weight": "Regular"
+            }
+        }
+    }
+}

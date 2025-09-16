@@ -1,0 +1,110 @@
+﻿.omni .btn-xp:focus, .omni .btn-xp:active, .omni .btn-xp:hover {
+    background-color: rgb(var(--rgb-primary), 1) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.omni .btn-xp {
+    color: rgba(0, 161, 210, 1) !important;
+    font-size: 16px;
+    margin:0 6px;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+.keep-formatting {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+.font-bl-11 {
+    color: var(--core-color-core-dark-100, #3B3E3F) !important;
+    font-family: var(--family-sans-serif);
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    line-height: 15px !important;
+    letter-spacing: 0.026px !important;
+}
+.text-opactity{
+    opacity:0.6;
+}
+.font-bl-12 {
+    color: var(--core-color-core-dark-100, #3B3E3F);
+    font-size: 12px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px!important;
+    letter-spacing: 0.032px;
+}
+.pl-20pixel {
+   padding-left: 20px !important;
+}
+
+.small-tile{
+    padding:4px 12px;
+}
+.mh-small-tile{
+    padding:4px 0px;
+}
+.mh-small-tile-inside{
+    padding: 0px 12px;
+}
+.w-6 {
+    width: 6% !important;
+}
+omni-tile.border-line::part(body-slot) {
+    position: static;
+}
+.border-line {
+    position:absolute;
+    border: 0.142857rem solid rgb(241, 245, 250);
+    border-radius: 0.714286rem 0.714286rem 0px 0px;
+    width:100%;
+    left:0;
+}
+omni-toolbar.runxp-toolbar::part(toolbar){
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    padding-left: 10px !important;
+    padding-right: 16px !important;
+}
+omni-tile.runxp-main-tile::part(body-slot) {
+    padding: 24px 16px !important;
+}
+.mb-31px{
+    margin-bottom: 31px !important;
+}
+omni-tile.active-group-tile::part(body-slot){
+    padding: 12px !important;
+}
+.active-grp-title {
+    color: var(--core-color-core-dark-100, #3B3E3F);
+    font-size: 12px !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: 17px;
+    letter-spacing: 0.06px;
+    text-transform: uppercase;
+}
+.mt-12px{
+    margin-top:12px !important;
+}
+.input-label {
+    color: var(--core-color-core-dark-100, #3B3E3F);
+    font-size: 11px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0.026px;
+    margin-bottom: 8px;
+    opacity: 0.6;
+}
+.f-12 {
+    color: var(--core-color-core-dark-100, #3B3E3F);
+    font-size: 12px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.032px;
+}
+omni-dropdown::part(dropdown){
+    z-index:99;
+}
