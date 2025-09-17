@@ -3,7 +3,7 @@ name: Trigger Azure DevOps Pipeline
 on:
   push:
     branches:
-      - develop   # Trigger on develop branch
+      - develop-latest   # Trigger on develop branch
 
 env:
   # Pipeline variables
