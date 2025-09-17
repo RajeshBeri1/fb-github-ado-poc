@@ -1,7 +1,7 @@
 name: Trigger Azure DevOps Pipeline
 
 on:
-  workflow_dispatch: # manual trigger for demo
+  workflow_dispatch:
   push:
     branches:
       - develop-latest
@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Azure DevOps settings
-      ADO_ORG: annalectus             # e.g. myorg
-      ADO_PROJECT: flowchart-builder        # e.g. flowchart-builder
-      PIPELINE_ID: 2268                       # Static pipelineId from ADO
-      ADO_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}       # Personal Access Token (store in GitHub Secrets)
+      ADO_ORG: annalectus
+      ADO_PROJECT: flowchart-builder
+      PIPELINE_ID: 2268
+      ADO_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
       # Variables to pass to ADO pipeline
       VAULT_KEY_NAME: kv-flowchart-dev-eus
@@ -42,9 +42,7 @@ jobs:
             -d "{
               \"resources\": {
                 \"repositories\": {
-                  \"self\": {
-                    \"refName\": \"refs/heads/main\"
-                  }
+                  \"self\": { \"refName\": \"refs/heads/main\" }
                 }
               },
               \"variables\": {
@@ -63,9 +61,17 @@ jobs:
               }
             }")
 
-          echo "Raw response: $RESPONSE"
-          RUN_ID=$(echo $RESPONSE | jq -r '.id')
-          echo "Triggered pipeline run ID: $RUN_ID"
+          echo "Raw response from ADO:"
+          echo "$RESPONSE"
+
+          RUN_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+
+          if [ -z "$RUN_ID" ] || [ "$RUN_ID" == "null" ]; then
+            echo "❌ Could not extract Run ID. Check raw response above."
+            exit 1
+          fi
+
+          echo "✅ Triggered pipeline run ID: $RUN_ID"
           echo "run_id=$RUN_ID" >> $GITHUB_OUTPUT
 
       - name: Stream Logs from Azure DevOps
@@ -75,11 +81,14 @@ jobs:
 
           while true; do
             STATUS=$(curl -s -u ":$ADO_PAT" \
-              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID?api-version=7.0" \
-              | jq -r '.status')
+              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/pipelines/$PIPELINE_ID/runs/$RUN_ID?api-version=7.0" \
+              | jq -r '.state')
 
+            echo "⏳ Current pipeline state: $STATUS"
+
+            # Fetch logs (these are jobs/stages, not the old build logs)
             LOGS=$(curl -s -u ":$ADO_PAT" \
-              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID/logs?api-version=7.0")
+              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/pipelines/$PIPELINE_ID/runs/$RUN_ID/logs?api-version=7.0")
 
             echo "$LOGS" | jq -r '.value[]?.url' | while read -r LOG_URL; do
               curl -s -u ":$ADO_PAT" "$LOG_URL" || true
@@ -87,7 +96,7 @@ jobs:
 
             if [[ "$STATUS" == "completed" ]]; then
               RESULT=$(curl -s -u ":$ADO_PAT" \
-                "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID?api-version=7.0" \
+                "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/pipelines/$PIPELINE_ID/runs/$RUN_ID?api-version=7.0" \
                 | jq -r '.result')
 
               echo "✅ Pipeline completed with result: $RESULT"
@@ -96,10 +105,8 @@ jobs:
                 echo "❌ Azure DevOps pipeline failed with result: $RESULT"
                 exit 1
               fi
-
               break
             fi
 
-            echo "⏳ Pipeline still running... (status: $STATUS)"
             sleep 15
           done
