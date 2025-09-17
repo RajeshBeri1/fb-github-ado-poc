@@ -1,7 +1,7 @@
 name: Trigger Azure DevOps Pipeline
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # manual trigger
   push:
     branches:
       - develop-latest
@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Azure DevOps settings
-      ADO_ORG: annalectus
-      ADO_PROJECT: flowchart-builder
-      PIPELINE_ID: 31
-      ADO_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+      ADO_ORG: annalectus                  # your org
+      ADO_PROJECT: flowchart-builder       # your project
+      PIPELINE_ID: 31                      # Build Definition ID from _build?definitionId=31
+      ADO_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}   # store PAT in GitHub secrets
 
       # Variables to pass to ADO pipeline
       VAULT_KEY_NAME: kv-flowchart-dev-eus
@@ -31,47 +31,56 @@ jobs:
       SQL_SERVER: sqlserver-flowchart-dev-eus.database.windows.net
 
     steps:
-      - name: Trigger Azure DevOps Pipeline
+      - name: Trigger Azure DevOps Pipeline (Builds API)
         id: trigger
         run: |
-          echo "🚀 Triggering Azure DevOps Pipeline $PIPELINE_ID ..."
+          echo "🚀 Triggering Azure DevOps Build Pipeline $PIPELINE_ID ..."
+
+          PARAMS=$(jq -n \
+            --arg VAULT_KEY_NAME "$VAULT_KEY_NAME" \
+            --arg VAULT_KEY_SECRET "$VAULT_KEY_SECRET" \
+            --arg CONFIG_PATH "$CONFIG_PATH" \
+            --arg BACKEND_CAPP "$BACKEND_CAPP" \
+            --arg DESIGNER_CAPP "$DESIGNER_CAPP" \
+            --arg PORTAL_CAPP "$PORTAL_CAPP" \
+            --arg SUBSCRIPTION "$SUBSCRIPTION" \
+            --arg RESOURCE_GROUP "$RESOURCE_GROUP" \
+            --arg ACR "$ACR" \
+            --arg KEY_VAULT "$KEY_VAULT" \
+            --arg SQL_DB "$SQL_DB" \
+            --arg SQL_SERVER "$SQL_SERVER" \
+            '{
+              VAULT_KEY_NAME: $VAULT_KEY_NAME,
+              VAULT_KEY_SECRET: $VAULT_KEY_SECRET,
+              CONFIG_PATH: $CONFIG_PATH,
+              BACKEND_CAPP: $BACKEND_CAPP,
+              DESIGNER_CAPP: $DESIGNER_CAPP,
+              PORTAL_CAPP: $PORTAL_CAPP,
+              SUBSCRIPTION: $SUBSCRIPTION,
+              RESOURCE_GROUP: $RESOURCE_GROUP,
+              ACR: $ACR,
+              KEY_VAULT: $KEY_VAULT,
+              SQL_DB: $SQL_DB,
+              SQL_SERVER: $SQL_SERVER
+            }' | jq -c)
 
           RESPONSE=$(curl -s -u ":$ADO_PAT" \
-            -X POST "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/pipelines/$PIPELINE_ID/runs?api-version=7.0" \
+            -X POST "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds?api-version=7.0" \
             -H "Content-Type: application/json" \
             -d "{
-              \"resources\": {
-                \"repositories\": {
-                  \"self\": { \"refName\": \"refs/heads/main\" }
-                }
-              },
-              \"variables\": {
-                \"VAULT_KEY_NAME\": {\"value\": \"$VAULT_KEY_NAME\"},
-                \"VAULT_KEY_SECRET\": {\"value\": \"$VAULT_KEY_SECRET\"},
-                \"CONFIG_PATH\": {\"value\": \"$CONFIG_PATH\"},
-                \"BACKEND_CAPP\": {\"value\": \"$BACKEND_CAPP\"},
-                \"DESIGNER_CAPP\": {\"value\": \"$DESIGNER_CAPP\"},
-                \"PORTAL_CAPP\": {\"value\": \"$PORTAL_CAPP\"},
-                \"SUBSCRIPTION\": {\"value\": \"$SUBSCRIPTION\"},
-                \"RESOURCE_GROUP\": {\"value\": \"$RESOURCE_GROUP\"},
-                \"ACR\": {\"value\": \"$ACR\"},
-                \"KEY_VAULT\": {\"value\": \"$KEY_VAULT\"},
-                \"SQL_DB\": {\"value\": \"$SQL_DB\"},
-                \"SQL_SERVER\": {\"value\": \"$SQL_SERVER\"}
-              }
+              \"definition\": { \"id\": $PIPELINE_ID },
+              \"parameters\": \"$PARAMS\"
             }")
 
-          echo "Raw response from ADO:"
-          echo "$RESPONSE"
+          echo "Raw response: $RESPONSE"
+          RUN_ID=$(echo $RESPONSE | jq -r '.id')
+          echo "Triggered pipeline run ID: $RUN_ID"
 
-          RUN_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
-
-          if [ -z "$RUN_ID" ] || [ "$RUN_ID" == "null" ]; then
-            echo "❌ Could not extract Run ID. Check raw response above."
+          if [[ "$RUN_ID" == "null" || -z "$RUN_ID" ]]; then
+            echo "❌ Could not extract Run ID. Check response above."
             exit 1
           fi
 
-          echo "✅ Triggered pipeline run ID: $RUN_ID"
           echo "run_id=$RUN_ID" >> $GITHUB_OUTPUT
 
       - name: Stream Logs from Azure DevOps
@@ -81,14 +90,11 @@ jobs:
 
           while true; do
             STATUS=$(curl -s -u ":$ADO_PAT" \
-              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/pipelines/$PIPELINE_ID/runs/$RUN_ID?api-version=7.0" \
-              | jq -r '.state')
+              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID?api-version=7.0" \
+              | jq -r '.status')
 
-            echo "⏳ Current pipeline state: $STATUS"
-
-            # Fetch logs (these are jobs/stages, not the old build logs)
             LOGS=$(curl -s -u ":$ADO_PAT" \
-              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/pipelines/$PIPELINE_ID/runs/$RUN_ID/logs?api-version=7.0")
+              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID/logs?api-version=7.0")
 
             echo "$LOGS" | jq -r '.value[]?.url' | while read -r LOG_URL; do
               curl -s -u ":$ADO_PAT" "$LOG_URL" || true
@@ -96,7 +102,7 @@ jobs:
 
             if [[ "$STATUS" == "completed" ]]; then
               RESULT=$(curl -s -u ":$ADO_PAT" \
-                "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/pipelines/$PIPELINE_ID/runs/$RUN_ID?api-version=7.0" \
+                "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID?api-version=7.0" \
                 | jq -r '.result')
 
               echo "✅ Pipeline completed with result: $RESULT"
@@ -105,8 +111,10 @@ jobs:
                 echo "❌ Azure DevOps pipeline failed with result: $RESULT"
                 exit 1
               fi
+
               break
             fi
 
+            echo "⏳ Pipeline still running... (status: $STATUS)"
             sleep 15
           done
