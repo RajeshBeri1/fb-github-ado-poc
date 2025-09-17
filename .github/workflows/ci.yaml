@@ -1,120 +1,148 @@
 name: Trigger Azure DevOps Pipeline
 
 on:
-  workflow_dispatch: # manual trigger
   push:
     branches:
-      - develop-latest
+      - develop-latest   # Run only when pushing to develop branch
+
+env:
+  # Pipeline variables
+  VAULT_KEY_NAME: kv-flowchart-dev-eus
+  VAULT_KEY_SECRET: serveroverride-dev
+  CONFIG_PATH: appsettings.override.json
+  BACKEND_CAPP: backendapp-flowchart-dev-eus
+  DESIGNER_CAPP: designerapp-flowchart-dev-eus
+  PORTAL_CAPP: portalapp-flowchart-dev-eus
+  SUBSCRIPTION: azure-omc-omg-ann20-shared-dev
+  RESOURCE_GROUP: rg-ann20shareddev-flowchart-eus-app
+  ACR: flowchart-dev-docker-service-connection
+  KEY_VAULT: kv-flowchart-dev-eus
+  SQL_DB: sqldb-flowchart-dev
+  SQL_SERVER: sqlserver-flowchart-dev-eus.database.windows.net
 
 jobs:
-  run-ado-pipeline:
+  trigger-pipeline:
     runs-on: ubuntu-latest
-    env:
-      # Azure DevOps settings
-      ADO_ORG: annalectus                   # e.g. your org
-      ADO_PROJECT: flowchart-builder        # e.g. your project
-      PIPELINE_ID: 31                       # definitionId from ADO UI (_build?definitionId=31)
-      ADO_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}  # GitHub Secret
-
-      # Variables to pass to ADO pipeline
-      VAULT_KEY_NAME: kv-flowchart-dev-eus
-      VAULT_KEY_SECRET: serveroverride-dev
-      CONFIG_PATH: appsettings.override.json
-      BACKEND_CAPP: backendapp-flowchart-dev-eus
-      DESIGNER_CAPP: designerapp-flowchart-dev-eus
-      PORTAL_CAPP: portalapp-flowchart-dev-eus
-      SUBSCRIPTION: azure-omc-omg-ann20-shared-dev
-      RESOURCE_GROUP: rg-ann20shareddev-flowchart-eus-app
-      ACR: flowchart-dev-docker-service-connection
-      KEY_VAULT: kv-flowchart-dev-eus
-      SQL_DB: sqldb-flowchart-dev
-      SQL_SERVER: sqlserver-flowchart-dev-eus.database.windows.net
 
     steps:
-      - name: Checkout Repo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Build Payload
-        id: payload
+      - name: Install Azure CLI & DevOps extension
         run: |
-          cat > payload.json <<EOF
-          {
-            "definition": {
-              "id": $PIPELINE_ID
-            },
-            "variables": {
-              "VAULT_KEY_NAME": {"value": "$VAULT_KEY_NAME"},
-              "VAULT_KEY_SECRET": {"value": "$VAULT_KEY_SECRET"},
-              "CONFIG_PATH": {"value": "$CONFIG_PATH"},
-              "BACKEND_CAPP": {"value": "$BACKEND_CAPP"},
-              "DESIGNER_CAPP": {"value": "$DESIGNER_CAPP"},
-              "PORTAL_CAPP": {"value": "$PORTAL_CAPP"},
-              "SUBSCRIPTION": {"value": "$SUBSCRIPTION"},
-              "RESOURCE_GROUP": {"value": "$RESOURCE_GROUP"},
-              "ACR": {"value": "$ACR"},
-              "KEY_VAULT": {"value": "$KEY_VAULT"},
-              "SQL_DB": {"value": "$SQL_DB"},
-              "SQL_SERVER": {"value": "$SQL_SERVER"}
-            }
-          }
-          EOF
+          az extension add -n azure-devops
 
-          echo "🔍 Validating payload..."
-          cat payload.json | jq empty || { echo "❌ Invalid JSON payload"; exit 1; }
-          echo "Payload looks valid ✅"
+      - name: Login to Azure DevOps
+        run: |
+          echo "${{ secrets.AZURE_DEVOPS_TOKEN }}" | az devops login --organization https://dev.azure.com/annalectus
+        env:
+          AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
-      - name: Trigger Azure DevOps Build Pipeline
+      - name: Trigger Azure DevOps pipeline
         id: trigger
         run: |
-          echo "🚀 Triggering Azure DevOps Build Pipeline $PIPELINE_ID ..."
+          ORG="https://dev.azure.com/annalectus"
+          PROJECT="flowchart-builder"
+          DEFINITION="flowchart-builder"
+          BRANCH="develop"
 
-          RESPONSE=$(curl -s -u ":$ADO_PAT" \
-            -X POST "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds?api-version=7.0" \
-            -H "Content-Type: application/json" \
-            -d @payload.json)
+          echo "Queuing build for branch $BRANCH"
+          buildId=$(az pipelines build queue \
+            --branch "$BRANCH" \
+            --org $ORG \
+            --project $PROJECT \
+            --definition-name $DEFINITION \
+            --variables \
+              VAULT_KEY_NAME=${{ env.VAULT_KEY_NAME }} \
+              VAULT_KEY_SECRET=${{ env.VAULT_KEY_SECRET }} \
+              CONFIG_PATH=${{ env.CONFIG_PATH }} \
+              BACKEND_CAPP=${{ env.BACKEND_CAPP }} \
+              DESIGNER_CAPP=${{ env.DESIGNER_CAPP }} \
+              PORTAL_CAPP=${{ env.PORTAL_CAPP }} \
+              SUBSCRIPTION=${{ env.SUBSCRIPTION }} \
+              RESOURCE_GROUP=${{ env.RESOURCE_GROUP }} \
+              ACR=${{ env.ACR }} \
+              SQL_DB=${{ env.SQL_DB }} \
+              SQL_SERVER=${{ env.SQL_SERVER }} \
+              KEY_VAULT=${{ env.KEY_VAULT }} \
+            --only-show-errors \
+            --query id -o tsv)
 
-          echo "Raw response: $RESPONSE"
+          echo "BuildId=$buildId" >> $GITHUB_ENV
+          echo "Triggered build ID: $buildId"
 
-          RUN_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
-          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
-            echo "❌ Could not extract Run ID. Check raw response above."
-            exit 1
-          fi
-
-          echo "Triggered pipeline run ID: $RUN_ID"
-          echo "run_id=$RUN_ID" >> $GITHUB_OUTPUT
-
-      - name: Stream Logs from Azure DevOps
+      - name: Stream Azure DevOps Logs
         run: |
-          RUN_ID=${{ steps.trigger.outputs.run_id }}
-          echo "📡 Streaming logs for Run ID: $RUN_ID"
+          ORG="https://dev.azure.com/annalectus"
+          PROJECT="flowchart-builder"
+          TOKEN="${{ secrets.AZURE_DEVOPS_TOKEN }}"
+          buildId=${{ env.BuildId }}
 
-          while true; do
-            STATUS=$(curl -s -u ":$ADO_PAT" \
-              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID?api-version=7.0" \
-              | jq -r '.status')
+          declare -A NEXT_LINE
+          declare -A HEADER_STATE
 
-            LOGS=$(curl -s -u ":$ADO_PAT" \
-              "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID/logs?api-version=7.0")
+          print_log_lines() {
+            local logId="$1"
+            local jobName="$2"
+            local stepName="$3"
+            local state="$4"
 
-            echo "$LOGS" | jq -r '.value[]?.url' | while read -r LOG_URL; do
-              curl -s -u ":$ADO_PAT" "$LOG_URL" || true
-            done
-
-            if [[ "$STATUS" == "completed" ]]; then
-              RESULT=$(curl -s -u ":$ADO_PAT" \
-                "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds/$RUN_ID?api-version=7.0" \
-                | jq -r '.result')
-
-              echo "✅ Pipeline completed with result: $RESULT"
-
-              if [[ "$RESULT" != "succeeded" ]]; then
-                echo "❌ Azure DevOps pipeline failed with result: $RESULT"
-                exit 1
-              fi
-              break
+            # Open header for step
+            if [[ "${HEADER_STATE[$logId]:-}" != "open" && "${HEADER_STATE[$logId]:-}" != "closed" ]]; then
+              echo ""
+              echo "============================================================"
+              echo "JOB: $jobName | STEP: $stepName"
+              echo "============================================================"
+              echo "::group::[$jobName] $stepName"
+              HEADER_STATE[$logId]="open"
             fi
 
-            echo "⏳ Pipeline still running... (status: $STATUS)"
-            sleep 15
+            local start="${NEXT_LINE[$logId]:-1}"
+            local url="$ORG/$PROJECT/_apis/build/builds/$buildId/logs/$logId?startLine=$start&api-version=7.1"
+
+            local content
+            content=$(curl -sS -u ":$TOKEN" "$url") || return
+
+            if [[ -n "$content" ]]; then
+              while IFS= read -r line; do
+                printf "[%s] [%s | %s] %s\n" "$(date +'%H:%M:%S')" "$jobName" "$stepName" "$line"
+              done <<< "$content"
+
+              local lines
+              lines=$(printf "%s" "$content" | wc -l | awk '{print $1}')
+              NEXT_LINE[$logId]=$((start + lines))
+            fi
+
+            # Close header if step is complete
+            if [[ "$state" == "completed" && "${HEADER_STATE[$logId]}" == "open" ]]; then
+              echo "::endgroup::"
+              HEADER_STATE[$logId]="closed"
+              echo ""
+            fi
+          }
+
+          echo "Fetching logs for build $buildId..."
+          status=$(az pipelines build show --id $buildId --org $ORG --project $PROJECT --query status -o tsv)
+
+          while [ "$status" != "completed" ]; do
+            timeline=$(curl -s -u ":$TOKEN" \
+              "$ORG/$PROJECT/_apis/build/builds/$buildId/timeline?api-version=7.1")
+
+            # For each step with a log
+            echo "$timeline" | jq -r '.records[] | select(.log.id != null) | "\(.log.id)|\(.parentId)|\(.name)|\(.state)"' |
+            while IFS="|" read -r logId parentId stepName state; do
+              jobName=$(echo "$timeline" | jq -r ".records[] | select(.id==\"$parentId\") | .name")
+              [ "$jobName" = "null" ] && jobName="Main"
+              print_log_lines "$logId" "$jobName" "$stepName" "$state"
+            done
+
+            sleep 5
+            status=$(az pipelines build show --id $buildId --org $ORG --project $PROJECT --query status -o tsv)
           done
+
+          # Final result
+          result=$(az pipelines build show --id $buildId --org $ORG --project $PROJECT --query result -o tsv)
+          echo "============================================================"
+          echo "FINAL RESULT: $result"
+          echo "============================================================"
+          if [ "$result" != "succeeded" ]; then exit 1; fi
