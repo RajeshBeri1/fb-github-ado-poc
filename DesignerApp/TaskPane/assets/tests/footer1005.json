@@ -1,9 +1,0 @@
-{
-   "id":"1005",
-   "component":"footer",
-   "description":"background color green | component-level style",
-   "outcome":"unknown",
-   "footerDefinition":
-   {"Configuration":{"EnableLegend":false,"RowMerge":"MergeAndCenter","Rows":[{"Text":"I have a background color","Order":0,"id":"Footer_Rows912","Styling":{"Border":{"Bottom":{"Style":"Continuous","Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0}},"Left":{"Style":"Continuous","Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0}},"Right":{"Style":"Continuous","Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0}},"Top":{"Style":"Continuous","Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0}}},"Fill":{},"Font":{"Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0},"Background":{"Alpha":1,"Blue":97,"Green":255,"Red":160},"ColorAlternate":{"Alpha":1,"Blue":0,"Green":0,"Red":0},"BackgroundAlternate":{"Alpha":1,"Blue":255,"Green":255,"Red":255},"Family":"Calibri","Size":10,"Weight":"Regular"},"Alignment":{"Horizontal":"Center","Vertical":"Center"}}}]},"Styling":{"Border":{"Bottom":{"Style":"Continuous","Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0}},"Left":{"Style":"Continuous","Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0}},"Right":{"Style":"Continuous","Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0}},"Top":{"Style":"Continuous","Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0}}},"Fill":{},"Font":{"Color":{"Alpha":1,"Blue":0,"Green":0,"Red":0},"Background":{"Alpha":1,"Blue":255,"Green":255,"Red":255},"ColorAlternate":{"Alpha":1,"Blue":0,"Green":0,"Red":0},"BackgroundAlternate":{"Alpha":1,"Blue":255,"Green":255,"Red":255},"Family":"Calibri","Size":10,"Weight":"Regular"},"Alignment":{"Horizontal":"Center","Vertical":"Center"}}}
-
-}
