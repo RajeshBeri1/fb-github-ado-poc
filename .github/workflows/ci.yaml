@@ -13,7 +13,7 @@ jobs:
       # Azure DevOps settings
       ADO_ORG: annalectus
       ADO_PROJECT: flowchart-builder
-      PIPELINE_ID: 2268
+      PIPELINE_ID: 31
       ADO_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
       # Variables to pass to ADO pipeline
