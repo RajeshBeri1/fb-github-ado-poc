@@ -176,7 +176,8 @@ jobs:
           if [ "$result" != "succeeded" ]; then exit 1; fi
 
       - name: Upload logs as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ado-logs
           path: logs/
+          retention-days: 30
