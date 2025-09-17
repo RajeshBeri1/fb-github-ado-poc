@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # manual trigger for demo
   push:
     branches:
-      - main
+      - develop-latest
 
 jobs:
   run-ado-pipeline:
