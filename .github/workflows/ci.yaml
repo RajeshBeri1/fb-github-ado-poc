@@ -1,20 +1,22 @@
 name: Trigger Azure DevOps Pipeline
 
 on:
-  workflow_dispatch: # manual trigger
-  push:
-    branches:
-      - develop-latest
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "Run in debug mode (print payload instead of triggering ADO)"
+        required: false
+        default: "false"
 
 jobs:
   run-ado-pipeline:
     runs-on: ubuntu-latest
     env:
       # Azure DevOps settings
-      ADO_ORG: annalectus                  # your org
-      ADO_PROJECT: flowchart-builder       # your project
-      PIPELINE_ID: 31                      # Build Definition ID from _build?definitionId=31
-      ADO_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}   # store PAT in GitHub secrets
+      ADO_ORG: annalectus
+      ADO_PROJECT: flowchart-builder
+      PIPELINE_ID: 31
+      ADO_PAT: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
       # Variables to pass to ADO pipeline
       VAULT_KEY_NAME: kv-flowchart-dev-eus
@@ -31,10 +33,10 @@ jobs:
       SQL_SERVER: sqlserver-flowchart-dev-eus.database.windows.net
 
     steps:
-      - name: Trigger Azure DevOps Pipeline (Builds API)
-        id: trigger
+      - name: Build JSON Payload
+        id: payload
         run: |
-          echo "🚀 Triggering Azure DevOps Build Pipeline $PIPELINE_ID ..."
+          echo "🧪 Building JSON payload for ADO Build Pipeline $PIPELINE_ID ..."
 
           PARAMS=$(jq -n \
             --arg VAULT_KEY_NAME "$VAULT_KEY_NAME" \
@@ -64,13 +66,40 @@ jobs:
               SQL_SERVER: $SQL_SERVER
             }' | jq -c)
 
+          PARAMS_ESCAPED=$(echo "$PARAMS" | sed 's/"/\\\\"/g')
+
+          FINAL_PAYLOAD=$(cat <<EOF
+{
+  "definition": { "id": $PIPELINE_ID },
+  "parameters": "$PARAMS_ESCAPED"
+}
+EOF
+)
+
+          echo "------ RAW PARAMS ------"
+          echo "$PARAMS"
+
+          echo "------ ESCAPED PARAMS ------"
+          echo "$PARAMS_ESCAPED"
+
+          echo "------ FINAL PAYLOAD ------"
+          echo "$FINAL_PAYLOAD"
+
+          echo "final_payload=$FINAL_PAYLOAD" >> $GITHUB_OUTPUT
+
+      - name: Trigger Azure DevOps Pipeline (or Debug)
+        id: trigger
+        run: |
+          if [[ "${{ github.event.inputs.debug }}" == "true" ]]; then
+            echo "🔍 Debug mode enabled. Not triggering Azure DevOps."
+            exit 0
+          fi
+
+          echo "🚀 Triggering Azure DevOps Build Pipeline $PIPELINE_ID ..."
           RESPONSE=$(curl -s -u ":$ADO_PAT" \
             -X POST "https://dev.azure.com/$ADO_ORG/$ADO_PROJECT/_apis/build/builds?api-version=7.0" \
             -H "Content-Type: application/json" \
-            -d "{
-              \"definition\": { \"id\": $PIPELINE_ID },
-              \"parameters\": \"$PARAMS\"
-            }")
+            -d '${{ steps.payload.outputs.final_payload }}')
 
           echo "Raw response: $RESPONSE"
           RUN_ID=$(echo $RESPONSE | jq -r '.id')
@@ -84,6 +113,7 @@ jobs:
           echo "run_id=$RUN_ID" >> $GITHUB_OUTPUT
 
       - name: Stream Logs from Azure DevOps
+        if: ${{ github.event.inputs.debug != 'true' }}
         run: |
           RUN_ID=${{ steps.trigger.outputs.run_id }}
           echo "📡 Streaming logs for Run ID: $RUN_ID"
